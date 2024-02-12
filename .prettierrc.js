@@ -1,5 +1,5 @@
 module.exports = {
-	printWidth: 100, // 최대 라인 길이를 100으로 설정
+	printWidth: 80, // 최대 라인 길이를 80으로 설정
 	tabWidth: 4, // 들여쓰기 간격을 4로 설정
 	useTabs: true, // 탭(tab)을 사용하여 들여쓰기를 할지 여부
 	semi: true, // 문장 끝에 세미콜론을 사용할지 여부

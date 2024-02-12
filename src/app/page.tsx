@@ -1,15 +1,10 @@
 import React from 'react';
-import Header from '@/component/Header';
-import Footer from '@/component/Footer';
 
+/**************************************************
+ * 메인 페이지
+ **************************************************/
 function Home() {
-	return (
-		<div>
-			<Header />
-			Main 로직
-			<Footer />
-		</div>
-	);
+	return <div>Main 로직</div>;
 }
 
 export default Home;

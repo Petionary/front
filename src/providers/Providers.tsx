@@ -1,18 +1,23 @@
-'use client';
-
 import StyledComponentsRegistry from '@/providers/StyledComponentsRegistry';
 import GlobalStyle from '@/style/global';
 import React from 'react';
+import RecoilRootProvider from '@/providers/RecoilRootProvider';
+import ReactQueryProvider from '@/providers/ReactQueryProvider';
 
 /**************************************************
- * styled-component에 관한 로직 모음( registry)
+ * provider 에 관한 파일입니다.
+ * react query, recoil, styled-component
  **************************************************/
 const Providers = (props: React.PropsWithChildren) => {
 	return (
-		<StyledComponentsRegistry>
-			<GlobalStyle />
-			{props.children}
-		</StyledComponentsRegistry>
+		<ReactQueryProvider>
+			<RecoilRootProvider>
+				<StyledComponentsRegistry>
+					<GlobalStyle />
+					{props.children}
+				</StyledComponentsRegistry>
+			</RecoilRootProvider>
+		</ReactQueryProvider>
 	);
 };
 

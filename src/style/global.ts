@@ -2,10 +2,14 @@
 
 import {createGlobalStyle, css} from 'styled-components';
 
+/**************************************************
+ * 전역 css
+ **************************************************/
 const styles = css`
 	html,
 	body {
-		align-items: center;
+		justify-content: center;
+		display: flex;
 		margin: 0px;
 		box-sizing: border-box;
 		font-weight: normal;
@@ -31,9 +35,7 @@ const styles = css`
 		box-sizing: border-box;
 	}
 `;
-/**************************************************
- * 전역 css
- **************************************************/
+
 const GlobalStyle = createGlobalStyle`
   ${styles}
 `;
