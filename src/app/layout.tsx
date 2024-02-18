@@ -1,8 +1,5 @@
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
-import type {Metadata} from 'next';
 import React from 'react';
 import Providers from '@/providers/Providers';
-import RecoilRootProvider from '@/providers/RecoilRootProvider';
 import Header from '@/component/Header';
 import Footer from '@/component/Footer';
 import {Layout} from '@/style/common';
