@@ -1,6 +1,7 @@
 'use client';
 
 import {createGlobalStyle, css} from 'styled-components';
+import {GRAY_COLOR_10} from '@/style/theme';
 
 /**************************************************
  * 전역 css
@@ -12,7 +13,9 @@ const styles = css`
 		display: flex;
 		margin: 0px;
 		box-sizing: border-box;
+		font-family: 'Pretendard';
 		font-weight: normal;
+		background-color: ${GRAY_COLOR_10};
 	}
 	//input 기본 스타일 제거(브라우저마다 다름)
 	input,

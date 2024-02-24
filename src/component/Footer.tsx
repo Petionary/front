@@ -8,7 +8,11 @@ import {GRAY_COLOR_20} from '@/style/theme';
  * 차후 구현 예정
  **************************************************/
 function Footer() {
-	return <Container color={GRAY_COLOR_20}>Footer 로직</Container>;
+	return (
+		<Container height={'150px'} color={GRAY_COLOR_20}>
+			Footer 로직
+		</Container>
+	);
 }
 
 export default Footer;

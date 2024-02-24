@@ -2,6 +2,11 @@
 
 import styled from 'styled-components';
 
+type TProps = {
+	height?: string;
+	color?: string;
+};
+
 /**************************************************
  * 전역 styled
  * 공통적으로 사용하는 css입니다.
@@ -13,10 +18,11 @@ export const Layout = styled.div`
 	width: 100vw;
 `;
 
-export const Container = styled.div`
+export const Container = styled.div<TProps>`
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	height: 100px;
+	border: 1px solid red; //임시 로직입니다.
+	height: ${(props) => props.height || ''};
 	background-color: ${(props) => props.color || '#0000'};
 `;

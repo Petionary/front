@@ -61,6 +61,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.js",
+    "**/*.jsx",
     ".next/types/**/*.ts"],
   // 제외할 디렉토리 설정
   "exclude": [

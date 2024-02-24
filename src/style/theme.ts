@@ -1,5 +1,5 @@
 /**************************************************
- * 공통 Css 상수 처리
+ * 공통 Css Color 상수처리
  **************************************************/
 export const SYSTEM_COLOR = '#C91B12'; //input field error
 export const PRIMARY_COLOR = '#67C1C7'; //input field click, main color
@@ -14,3 +14,7 @@ export const GRAY_COLOR_70 = '#555555';
 export const GRAY_COLOR_80 = '#333333';
 export const GRAY_COLOR_90 = '#222222'; //font
 export const GRAY_COLOR_100 = '#1F1F1F'; //default icon, title
+
+/**************************************************
+ * 전역 font size styled-component css 속성으로 처리 예정
+ **************************************************/

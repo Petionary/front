@@ -1,23 +1,28 @@
 'use client';
 
 import styled, {css} from 'styled-components';
-import {GRAY_COLOR_100, GRAY_COLOR_40, PRIMARY_COLOR, SYSTEM_COLOR} from '@/style/theme';
+import {
+	GRAY_COLOR_100,
+	GRAY_COLOR_40,
+	PRIMARY_COLOR,
+	SYSTEM_COLOR,
+} from '@/style/theme';
 
 /**************************************************
  * icon에 관한 로직
- * iType: 타입에 따라 아이콘 색 지정, 공용 타입으로 사용 예정
+ * IType: 타입에 따라 아이콘 색 지정, 공용 타입으로 사용 예정
  * IconColorCss : 타입에 따라서 색깔을 지정
  * DefaultIcon : 아이콘 css 지정 margin size cursor
  * Icon : 기본 아이콘 css(이걸로 사용)
  *
  * 사용
- * <Icon size={'20px'} iType={iType.warning}>
+ * <Icon size={'20px'} IType={IType.warning}>
  *  	{MyPageIcon}
  * </Icon>
  **************************************************/
 
 // 아이콘 타입 정의
-type IconType =
+type TIcon =
 	| 'cancel'
 	| 'white'
 	| 'disabled'
@@ -33,10 +38,10 @@ interface IconProps {
 	isDisabled?: boolean;
 	size?: string;
 	margin?: string;
-	iType?: IconType;
+	IType?: TIcon;
 }
 
-export const iType: {[key in IconType]: IconType} = {
+export const IType: {[key in TIcon]: TIcon} = {
 	cancel: 'cancel',
 	white: 'white',
 	disabled: 'disabled',
@@ -50,13 +55,13 @@ export const iType: {[key in IconType]: IconType} = {
 
 const IconColorCss = css<IconProps>`
 	${(props) =>
-		props.iType === iType.main
+		props.IType === IType.main
 			? PRIMARY_COLOR
-			: props.iType === iType.warning
+			: props.IType === IType.warning
 			? SYSTEM_COLOR
-			: props.iType === iType.disabled
+			: props.IType === IType.disabled
 			? GRAY_COLOR_40
-			: GRAY_COLOR_100};
+			: ''};
 `;
 
 // DefaultIcon 컴포넌트의 스타일 정의
