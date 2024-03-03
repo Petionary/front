@@ -1,46 +1,68 @@
-'use client';
-
 import styled from 'styled-components';
-import Input from '../../common/Input';
 import SectionTitle from '../../common/SectionTitle';
+import Input from '../../common/Input';
+import {Icon, iType} from '@/style/icon';
+import {UserIcon} from '@/icons/default';
+import {IUser} from '@/types/common';
 import Image from 'next/image';
-import {useState} from 'react';
-import {GRAY_COLOR_10, GRAY_COLOR_40} from '@/style/theme';
 
-function UserInfo() {
-	const [editToggle, setEditToggle] = useState(false);
-
-	return (
-		<Container>
-			<SectionWrapper>
-				<SectionTitle title='My Profile' />
-			</SectionWrapper>
-			{/* 이미지 */}
-			{/* 인풋 */}
-			{/* 관심지역 */}
-			<SectionWrapper>
-				<SectionTitle title='My Place' />
-			</SectionWrapper>
-		</Container>
-	);
+interface IProps {
+	user: IUser;
 }
 
+function UserInfo({user}: IProps) {
+	return (
+		<SectionContainer>
+			<SectionTitle title='My Profile' />
+			<Wrapper>
+				{user?.profileURL ? (
+					<Image
+						width={160}
+						height={160}
+						src={user?.profileURL}
+						alt='user'
+					/>
+				) : (
+					<_IconContainer>
+						<Icon size={'78px'} iType={iType.white}>
+							{UserIcon}
+						</Icon>
+					</_IconContainer>
+				)}
+				<InputWrapper>
+					<Input label='이메일' />
+					<Input label='전화번호' />
+					<Input label='이름' />
+					<Input label='별명' />
+				</InputWrapper>
+			</Wrapper>
+		</SectionContainer>
+	);
+}
 export default UserInfo;
 
-const Container = styled.section`
-	width: calc(100% - 180px);
-	overflow-y: scroll;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+const SectionContainer = styled.section`
+	width: 100%;
 `;
 
-const SectionWrapper = styled.div`
+const InputWrapper = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
+	width: 600px;
+`;
+
+const _IconContainer = styled.div`
+	width: 160px;
+	height: 160px;
+	background-color: #d9d9d9;
+	border-radius: 100%;
+	display: flex;
 	justify-content: center;
-	padding: 30px 100px;
-	border: 1px solid ${GRAY_COLOR_40};
-	width: 80%;
-	background-color: ${GRAY_COLOR_10};
+`;
+
+const Wrapper = styled.div`
+	width: 100%;
+	display: flex;
+	margin: 100px 0;
+	justify-content: space-evenly;
 `;
