@@ -2,7 +2,7 @@
 
 import React, {JSX} from 'react';
 import styled from 'styled-components';
-import {GRAY_COLOR_100, GRAY_COLOR_40} from '@/style/theme';
+import {GRAY_COLOR_100, GRAY_COLOR_40, WHITE_COLOR} from '@/style/theme';
 import {IconStroke} from '@/style/icon';
 
 /**************************************************
@@ -39,8 +39,9 @@ const _Container = styled.div<TStyle>`
 	height: 60px;
 	padding-left: 109px;
 	border: 1px solid ${GRAY_COLOR_40};
+	background-color: ${WHITE_COLOR};
 	border-radius: 4px;
-	margin: 0 0 12px 0;
+	margin: 0 0 15px 0;
 	cursor: pointer;
 `;
 

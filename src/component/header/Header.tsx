@@ -5,6 +5,7 @@ import Image from 'next/image';
 import {logoutIcon, MyPageIcon} from '@/icons/default';
 import {Container} from '@/style/common';
 import Panel from '@/component/header/Panel';
+import {WHITE_COLOR} from '@/style/theme';
 
 /**************************************************
  * 메인 페이지
@@ -26,30 +27,38 @@ const data = {
 
 function Header() {
 	return (
-		<Container height={'100px'}>
-			<_Content>
+		<_Container>
+			<_Wrapper>
 				<Image
 					src={data.logo.src}
 					alt={data.logo.alt}
 					width={150}
 					height={32}
 				/>
+				{/*우측 사용자 패널에 관한 부분입니다.*/}
 				<_MyPanelArea>
 					<Panel icon={MyPageIcon} content={data.panel.myPage} />
 					<Panel icon={logoutIcon} content={data.panel.logout} />
 				</_MyPanelArea>
-			</_Content>
-		</Container>
+			</_Wrapper>
+		</_Container>
 	);
 }
 
 export default Header;
 
-const _Content = styled.section`
+const _Container = styled.div`
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	background-color: ${WHITE_COLOR};
+	height: 80px;
+`;
+
+const _Wrapper = styled.section`
 	display: flex;
 	justify-content: space-between;
-	width: 70vw;
-	max-width: 1300px;
+	width: 60%;
 	align-items: center;
 `;
 

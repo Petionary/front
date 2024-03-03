@@ -153,7 +153,7 @@ export const NaverIcon = (
 /**************************************************
  * 로그인 페이지에서 중간 경계 라인 입니다.
  **************************************************/
-export const Rectangle = (
+export const RectangleIcon = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
 		width='350'
@@ -162,5 +162,25 @@ export const Rectangle = (
 		fill='none'
 	>
 		<rect width='350' height='2' fill='#DEDEDE' />
+	</svg>
+);
+
+/**************************************************
+ * 메인 페이지에서 아래 화면으로 이동할 때 아이콘
+ **************************************************/
+export const MoveToNextScreenArrowIcon = (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='7'
+		height='22'
+		viewBox='0 0 7 22'
+		fill='none'
+	>
+		<path
+			d='M1 1L0.999999 21L6 15.1667'
+			stroke='#FF9666'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+		/>
 	</svg>
 );

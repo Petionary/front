@@ -1,7 +1,8 @@
 'use client';
+
 import React from 'react';
-import {Container} from '@/style/common';
 import {GRAY_COLOR_20} from '@/style/theme';
+import styled from 'styled-components';
 
 /**************************************************
  * 하단 컴포넌트
@@ -9,10 +10,15 @@ import {GRAY_COLOR_20} from '@/style/theme';
  **************************************************/
 function Footer() {
 	return (
-		<Container height={'150px'} color={GRAY_COLOR_20}>
-			Footer 로직
-		</Container>
+		<_Container>
+			<div>Footer입니다.</div>
+		</_Container>
 	);
 }
 
 export default Footer;
+
+const _Container = styled.div`
+	width: 100%;
+	border: 1px solid red; //임시 로직입니다.
+`;

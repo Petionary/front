@@ -2,27 +2,32 @@
 
 import styled from 'styled-components';
 
-type TProps = {
-	height?: string;
-	color?: string;
-};
-
 /**************************************************
  * 전역 styled
  * 공통적으로 사용하는 css입니다.
  **************************************************/
-export const Layout = styled.div`
+
+type TFlexContainer = {
+	alignItems?: string;
+	justifyContent?: string;
+	flexDirection?: string;
+};
+
+export const FlexContainer = styled.div<TFlexContainer>`
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100vw;
+	align-items: ${(props) => props?.alignItems || 'center'};
+	justify-content: ${(props) => props?.justifyContent || 'center'};
+	flex-direction: ${(props) => props?.flexDirection || 'row'};=
 `;
 
-export const Container = styled.div<TProps>`
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	border: 1px solid red; //임시 로직입니다.
-	height: ${(props) => props.height || ''};
-	background-color: ${(props) => props.color || '#0000'};
+type TFontStyle = {
+	fontSize: string;
+	fontWeight?: number;
+	color?: string;
+};
+
+export const FontStyle = styled.p<TFontStyle>`
+	font-size: ${(props) => props.fontSize};
+	font-weight: ${(props) => props?.fontWeight || 400};
+	color: ${(props) => props?.color || '#000'};=
 `;

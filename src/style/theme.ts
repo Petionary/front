@@ -14,7 +14,11 @@ export const GRAY_COLOR_70 = '#555555';
 export const GRAY_COLOR_80 = '#333333';
 export const GRAY_COLOR_90 = '#222222'; //font
 export const GRAY_COLOR_100 = '#1F1F1F'; //default icon, title
+export const WHITE_COLOR = '#FFFFFF';
 
 /**************************************************
  * 전역 font size styled-component css 속성으로 처리 예정
  **************************************************/
+
+export const LOGIN_TITLE_FONT_SIZE = '22px';
+export const LOGIN_BUTTON_FONT_SIZE = '14px';

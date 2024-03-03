@@ -17,7 +17,9 @@ function Head() {
 				content={'width=device-width, initial-scale=1'}
 				name={'viewport'}
 			/>
+			{/*내용에 관한 부분입니다.*/}
 			<meta name={'description'} content={data.content} />
+			{/*아이콘에 관한 부분입니다.*/}
 			<link rel={'icon'} href={data.iconRef} />
 		</React.Fragment>
 	);
