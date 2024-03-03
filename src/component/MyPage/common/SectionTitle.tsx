@@ -1,3 +1,6 @@
+import {MapIcon} from '@/icons/default';
+import {Icon, iType} from '@/style/icon';
+import {GRAY_COLOR_90} from '@/style/theme';
 import styled from 'styled-components';
 
 interface IProps {
@@ -5,13 +8,25 @@ interface IProps {
 }
 
 function SectionTitle({title}: IProps) {
-	return <StyledHeader>{title}</StyledHeader>;
+	return (
+		<_IconWrapper>
+			<Icon size={'40px'} iType={iType.main} margin={'0 8px 0 0'}>
+				{MapIcon}
+			</Icon>
+			<p>{title}</p>
+		</_IconWrapper>
+	);
 }
 
 export default SectionTitle;
 
-const StyledHeader = styled.h2`
-	font-size: 20px;
+const _IconWrapper = styled.div`
+	display: flex;
+	font-size: 24px;
+	font-weight: 700;
+	color: ${GRAY_COLOR_90};
 	width: 80%;
-	margin: 30px 0;
+	margin: 30px 0 0 40px;
+	display: flex;
+	align-items: center;
 `;

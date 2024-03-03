@@ -21,7 +21,7 @@ const StyledLabel = styled.label`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 10px;
+	margin: 0 40px 40px 0;
 `;
 const LabelText = styled.p`
 	color: ${GRAY_COLOR_90};
@@ -34,4 +34,5 @@ const StyledInput = styled.input`
 	border: none;
 	border-bottom: 1px solid ${GRAY_COLOR_40};
 	background-color: transparent;
+	outline: none;
 `;
