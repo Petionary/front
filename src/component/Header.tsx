@@ -1,10 +1,6 @@
-'use client'; //styled-component ssr 설정 완료 되면 제거 예정
 import React from 'react';
-import styled from 'styled-components';
 import Image from 'next/image';
-import {Icon, iType} from '@/style/icon';
 import {logoutIcon, MyPageIcon} from '@/icons/default';
-import {Container} from '@/style/common';
 
 const data = {
 	image: {
@@ -20,58 +16,34 @@ type IProps = {};
  * 로고, 메뉴, mypage 등 정보가 들어감
  * routing 부분은 차후 구현 예정
  **************************************************/
+
 function Header() {
 	return (
-		<Container>
-			<_ContentLayout>
+		<header className='flex justify-center w-full h-[100px] px-[15vw]'>
+			<section className='flex justify-between w-[70vw] max-w-[1300px] items-center'>
 				<Image
 					src={'/logo_img.png'}
 					alt={'프로젝트 로고'}
 					width={180}
 					height={42}
 				/>
-				<_MyPanelArea>
-					<_IconWrapper>
-						<Icon
-							size={'20px'}
-							iType={iType.warning}
-							margin={'0 8px 0 0'}
-						>
+				<aside className='flex'>
+					<div className='flex mx-[32px] items-center'>
+						<span className='w-[20px] fill-system mr-[8px]'>
 							{MyPageIcon}
-						</Icon>
+						</span>
 						<p>MY</p>
-					</_IconWrapper>
-
-					<_IconWrapper>
-						<Icon size={'20px'} margin={'0 8px 0 0'}>
+					</div>
+					<div className='flex ml-[32px] items-center'>
+						<span className='w-[20px] fill-system mr-[8px]'>
 							{logoutIcon}
-						</Icon>
+						</span>
 						<p>LOGOUT</p>
-					</_IconWrapper>
-				</_MyPanelArea>
-			</_ContentLayout>
-		</Container>
+					</div>
+				</aside>
+			</section>
+		</header>
 	);
 }
 
 export default Header;
-
-const _ContentLayout = styled.section`
-	display: flex;
-	justify-content: space-between;
-	width: 70vw;
-	max-width: 1300px;
-	align-items: center;
-`;
-
-const _MyPanelArea = styled.aside`
-	display: flex;
-	p:first-child {
-		margin-right: 32px;
-	}
-`;
-
-const _IconWrapper = styled.div`
-	display: flex;
-	margin: 0 0 0 32px;
-`;
