@@ -25,8 +25,6 @@ const _IconWrapper = styled.div`
 	font-size: 24px;
 	font-weight: 700;
 	color: ${GRAY_COLOR_90};
-	width: 80%;
-	margin: 30px 0 0 40px;
 	display: flex;
 	align-items: center;
 `;

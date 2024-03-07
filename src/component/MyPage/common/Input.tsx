@@ -8,20 +8,20 @@ interface IProps extends ComponentPropsWithoutRef<'input'> {
 
 function Input({label, ...rest}: IProps) {
 	return (
-		<StyledLabel>
+		<InputBox>
 			<LabelText>{label}</LabelText>
 			<StyledInput {...rest}></StyledInput>
-		</StyledLabel>
+		</InputBox>
 	);
 }
 
 export default Input;
 
-const StyledLabel = styled.label`
+const InputBox = styled.label`
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	margin: 0 40px 40px 0;
+	margin: 0 50px 56px 50px;
 `;
 const LabelText = styled.p`
 	color: ${GRAY_COLOR_90};
