@@ -1,10 +1,6 @@
-'use client';
-
-import styled from 'styled-components';
-import UserInfo from './components/UserProfile';
 import UserPlace from './components/UserPlace';
-import {IUser} from '@/types/common';
 import UserProfile from './components/UserProfile';
+import {IUser} from '../../../types/common';
 
 interface IProps {
 	user: IUser;
@@ -12,22 +8,15 @@ interface IProps {
 
 function UserPage({user}: IProps) {
 	return (
-		<Container>
+		<section className='w-full pl-[83px] overflow-y-scroll flex flex-col'>
 			<UserProfile user={user} />
 			<UserPlace />
-		</Container>
+		</section>
 	);
 }
 
 export default UserPage;
 
-const Container = styled.section`
-	width: 100%;
-	padding: 0 0 0 83px;
-	overflow-y: scroll;
-	display: flex;
-	flex-direction: column;
-	&::-webkit-scrollbar {
+/* :-webkit-scrollbar {
 		display: none;
-	}
-`;
+	} */

@@ -1,7 +1,4 @@
 import {MapIcon} from '@/icons/default';
-import {Icon, iType} from '@/style/icon';
-import {GRAY_COLOR_90} from '@/style/theme';
-import styled from 'styled-components';
 
 interface IProps {
 	title: string;
@@ -9,22 +6,11 @@ interface IProps {
 
 function SectionTitle({title}: IProps) {
 	return (
-		<_IconWrapper>
-			<Icon size={'40px'} iType={iType.main} margin={'0 8px 0 0'}>
-				{MapIcon}
-			</Icon>
-			<p>{title}</p>
-		</_IconWrapper>
+		<div className='flex text-[24px] font-[700] text-gray_90 items-center'>
+			<MapIcon className='w-[40px] mr-[8px] fill-primary' />
+			<h2>{title}</h2>
+		</div>
 	);
 }
 
 export default SectionTitle;
-
-const _IconWrapper = styled.div`
-	display: flex;
-	font-size: 24px;
-	font-weight: 700;
-	color: ${GRAY_COLOR_90};
-	display: flex;
-	align-items: center;
-`;

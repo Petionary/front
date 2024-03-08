@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Input from '../../common/Input';
-import {IUser} from '@/types/common';
+import {IUser} from '../../../../types/common';
 
 interface IProp {
 	userInput: IUser;

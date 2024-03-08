@@ -1,4 +1,3 @@
-import {GRAY_COLOR_40, GRAY_COLOR_90} from '@/style/theme';
 import {ComponentPropsWithoutRef} from 'react';
 import styled from 'styled-components';
 
@@ -8,31 +7,14 @@ interface IProps extends ComponentPropsWithoutRef<'input'> {
 
 function Input({label, ...rest}: IProps) {
 	return (
-		<InputBox>
-			<LabelText>{label}</LabelText>
-			<StyledInput {...rest}></StyledInput>
-		</InputBox>
+		<label className='flex flex-col justify-between mx-[50px] mb-[56px] text-[15px]'>
+			<p className='text-gray_90'>{label}</p>
+			<input
+				className='w-[225px] h-[44px] px-[15px] border-b text-gray_60 border-gray_40 outline-none bg-transparent'
+				{...rest}
+			/>
+		</label>
 	);
 }
 
 export default Input;
-
-const InputBox = styled.label`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	margin: 0 50px 56px 50px;
-`;
-const LabelText = styled.p`
-	color: ${GRAY_COLOR_90};
-	font-size: 15px;
-`;
-const StyledInput = styled.input`
-	width: 225px;
-	height: 44px;
-	padding: 0 15px;
-	border: none;
-	border-bottom: 1px solid ${GRAY_COLOR_40};
-	background-color: transparent;
-	outline: none;
-`;

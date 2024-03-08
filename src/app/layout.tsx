@@ -1,9 +1,10 @@
 import React from 'react';
+import '@/app/globals.css';
+
+import Head from '@/app/head';
+import Footer from '@/component/Footer';
 import Providers from '@/providers/Providers';
 import Header from '@/component/Header';
-import Footer from '@/component/Footer';
-import Head from '@/app/head';
-import './globals.css';
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (

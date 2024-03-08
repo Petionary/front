@@ -1,6 +1,6 @@
 import React from 'react';
-import RecoilRootProvider from '@/providers/RecoilRootProvider';
-import ReactQueryProvider from '@/providers/ReactQueryProvider';
+import ReactQueryProvider from './ReactQueryProvider';
+import RecoilRootProvider from './RecoilRootProvider';
 
 /**************************************************
  * provider 에 관한 파일입니다.

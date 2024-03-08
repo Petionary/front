@@ -1,3 +1,4 @@
+'use client';
 import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
@@ -30,49 +31,25 @@ function UserProfile({user}: IProps) {
 	}, [uploadedFile.length]);
 
 	return (
-		<_SectionContainer>
-			<_FlexWrapper>
+		<section className='w-full mt-[40px]'>
+			<div className='w-full flex justify-between'>
 				<SectionTitle title='My Profile' />
-				<_EditButton onClick={handleEditToggle}>
+				<button
+					className='w-[72px] h-[38px] rounded-[4px] bg-wh border border-secondary text-secondary text-[15px] cursor-pointer'
+					onClick={handleEditToggle}
+				>
 					{editToggle ? '완료' : '정보수정'}
-				</_EditButton>
-			</_FlexWrapper>
-			<_Content>
+				</button>
+			</div>
+			<div className='w-full flex mt-[80px] mb-[48px]'>
 				<UserProfileImage
 					profileURL={userInput?.profileURL}
 					onChangeProfileImage={handleUploadFile}
 					editable={editToggle}
 				/>
 				<UserProfileInput userInput={userInput} editable={editToggle} />
-			</_Content>
-		</_SectionContainer>
+			</div>
+		</section>
 	);
 }
 export default UserProfile;
-
-const _SectionContainer = styled.section`
-	width: 100%;
-	margin-top: 40px;
-`;
-
-const _Content = styled.div`
-	width: 100%;
-	display: flex;
-	margin: 80px 0 48px 0;
-`;
-
-const _FlexWrapper = styled.div`
-	display: flex;
-	justify-content: space-between;
-`;
-
-const _EditButton = styled.button`
-	width: 72px;
-	height: 38px;
-	border-radius: 4px;
-	background-color: white;
-	border: 1px solid #ff9666;
-	color: #ff9666;
-	font-size: 15px;
-	cursor: pointer;
-`;

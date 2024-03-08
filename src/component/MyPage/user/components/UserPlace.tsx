@@ -3,14 +3,10 @@ import SectionTitle from '../../common/SectionTitle';
 
 function UserPlace() {
 	return (
-		<SectionContainer>
+		<section className='w-full'>
 			<SectionTitle title='My Place' />
-		</SectionContainer>
+		</section>
 	);
 }
 
 export default UserPlace;
-
-const SectionContainer = styled.section`
-	width: 100%;
-`;
