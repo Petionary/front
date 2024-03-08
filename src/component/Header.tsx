@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import {logoutIcon, MyPageIcon} from '@/icons/default';
+import {LogoutIcon, MyPageIcon} from '../icons/default';
 
 const data = {
 	image: {
@@ -29,15 +29,11 @@ function Header() {
 				/>
 				<aside className='flex'>
 					<div className='flex mx-[32px] items-center'>
-						<span className='w-[20px] fill-system mr-[8px]'>
-							{MyPageIcon}
-						</span>
+						<MyPageIcon className='w-[20px] fill-gray_100 mr-[8px]' />
 						<p>MY</p>
 					</div>
 					<div className='flex ml-[32px] items-center'>
-						<span className='w-[20px] fill-system mr-[8px]'>
-							{logoutIcon}
-						</span>
+						<LogoutIcon className='w-[20px] fill-gray_100 mr-[8px]' />
 						<p>LOGOUT</p>
 					</div>
 				</aside>
