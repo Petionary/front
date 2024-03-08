@@ -1,5 +1,3 @@
-import StyledComponentsRegistry from '@/providers/StyledComponentsRegistry';
-import GlobalStyle from '@/style/global';
 import React from 'react';
 import RecoilRootProvider from '@/providers/RecoilRootProvider';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
@@ -11,12 +9,7 @@ import ReactQueryProvider from '@/providers/ReactQueryProvider';
 const Providers = (props: React.PropsWithChildren) => {
 	return (
 		<ReactQueryProvider>
-			<RecoilRootProvider>
-				<StyledComponentsRegistry>
-					<GlobalStyle />
-					{props.children}
-				</StyledComponentsRegistry>
-			</RecoilRootProvider>
+			<RecoilRootProvider>{props.children}</RecoilRootProvider>
 		</ReactQueryProvider>
 	);
 };
