@@ -16,7 +16,3 @@ function UserPage({user}: IProps) {
 }
 
 export default UserPage;
-
-/* :-webkit-scrollbar {
-		display: none;
-	} */
