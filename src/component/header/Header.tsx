@@ -1,7 +1,6 @@
-'use client'; //styled-component ssr 설정 완료 되면 제거 예정
 import React from 'react';
 import Image from 'next/image';
-import {logoutIcon, MyPageIcon} from '@/icons/default';
+import {LogoutIcon, MyPageIcon} from '@/icons/default';
 import Panel from '@/component/header/Panel';
 
 /**************************************************
@@ -34,8 +33,8 @@ function Header() {
 				/>
 				{/*우측 사용자 패널에 관한 부분입니다.*/}
 				<aside className={'flex'}>
-					<Panel icon={MyPageIcon} content={data.panel.myPage} />
-					<Panel icon={logoutIcon} content={data.panel.logout} />
+					<Panel icon={<MyPageIcon />} content={data.panel.myPage} />
+					<Panel icon={<LogoutIcon />} content={data.panel.logout} />
 				</aside>
 			</section>
 		</div>

@@ -1,5 +1,3 @@
-'use client';
-
 import React, {JSX} from 'react';
 // import {IconStroke} from '@/style/icon';
 
@@ -17,9 +15,6 @@ function LoginButton({icon, content}: TProps) {
 			className={
 				'bg-white flex items-center pl-[109px] w-[342px] h-[60px] mt-[15px] cursor-pointer border border-gray_40 rounded-[4px]'
 			}
-			onClick={() => {
-				alert('호출');
-			}}
 		>
 			{/*<IconStroke size={'24px'}>*/}
 			{icon}

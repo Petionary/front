@@ -23,12 +23,15 @@ function Login() {
 					{data.title}
 				</p>
 				{/*<Icon margin={'0 0 40px 0'}>*/}
-				{RectangleIcon}
+				<RectangleIcon />
 				{/*</Icon>*/}
 				{/*로그인 Auth 에 관한 로직입니다.*/}
-				<LoginButton content={data.button.kakao} icon={KakaoIcon} />
-				<LoginButton content={data.button.google} icon={GoogleIcon} />
-				<LoginButton content={data.button.naver} icon={NaverIcon} />
+				<LoginButton content={data.button.kakao} icon={<KakaoIcon />} />
+				<LoginButton
+					content={data.button.google}
+					icon={<GoogleIcon />}
+				/>
+				<LoginButton content={data.button.naver} icon={<NaverIcon />} />
 			</div>
 		</div>
 	);

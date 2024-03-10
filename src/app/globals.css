@@ -47,4 +47,10 @@ select {
 }
 div {
     box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	background: transparent;
+	border: none;
+	padding: 0;
 }

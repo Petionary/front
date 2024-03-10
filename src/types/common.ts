@@ -1,6 +1,11 @@
 /**************************************************
  * 공통으로 사용하는 타입
  **************************************************/
-export type TTest = {
-	test: string;
-};
+
+export interface IUser {
+	email: string;
+	name: string;
+	nickname: string;
+	contact: string;
+	profileURL: string;
+}

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 /**************************************************
@@ -8,9 +6,9 @@ import React from 'react';
  **************************************************/
 function Footer() {
 	return (
-		<div className={'w-[100%]'}>
-			<div>Footer입니다.</div>
-		</div>
+		<footer className='flex justify-center w-full h-[100px] bg-gray_20'>
+			Footer 로직
+		</footer>
 	);
 }
 

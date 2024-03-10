@@ -21,7 +21,6 @@ const data = {
 
 type TProps = {
 	pageKey: string;
-	// backgroundColor: string;
 };
 
 function PageSummary({pageKey}: TProps) {

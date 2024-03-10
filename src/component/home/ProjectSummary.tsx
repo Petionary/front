@@ -46,7 +46,7 @@ function ProjectSummary() {
 				</div>
 				<div className={'relative top-[150px]'}>
 					{/*<Icon size={'20px'} margin={'0 0 8px 0'}>*/}
-					{MoveToNextScreenArrowIcon}
+					<MoveToNextScreenArrowIcon />
 					{/*</Icon>*/}
 					<p
 						className={
