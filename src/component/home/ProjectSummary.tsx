@@ -1,8 +1,6 @@
 import React from 'react';
-import {Icon} from '@/style/icon';
+// import {Icon} from '@/style/icon';
 import {MoveToNextScreenArrowIcon} from '@/icons/default';
-import styled from 'styled-components';
-import {GRAY_COLOR_20, SECONDARY_COLOR} from '@/style/theme';
 
 const data = {
 	title: 'PETIONARY',
@@ -15,87 +13,52 @@ const data = {
 
 function ProjectSummary() {
 	return (
-		<_Container>
-			<_Wrapper>
-				<_FlexContainer>
-					<_Title>{data.title}</_Title>
-					<_ContentWrapper>
-						<_ContentWrapper>
-							<_Content>{data.content}</_Content>
-							<_Content>{data.title}</_Content>
-						</_ContentWrapper>
-						<_Description>{data.description.first}</_Description>
-						<_Description>{data.description.second}</_Description>
-					</_ContentWrapper>
-				</_FlexContainer>
-				<_IconWrapper>
-					<Icon size={'20px'} margin={'0 0 8px 0'}>
-						{MoveToNextScreenArrowIcon}
-					</Icon>
-					<_ScrollDownText>Scroll down</_ScrollDownText>
-				</_IconWrapper>
-			</_Wrapper>
-		</_Container>
+		<div className={'flex justify-center w-[100%] bg-gray_20'}>
+			<div
+				className={
+					'flex flex-col items-center justify-center w-[80%] min-h-[645px]'
+				}
+			>
+				<div className={'flex justify-around w-[80%]'}>
+					<p
+						className={
+							'text-[70px] font-[700] leading-[70px] mr-[30px]'
+						}
+					>
+						{data.title}
+					</p>
+					<div className={'flex flex-col mb-[50px]'}>
+						<div className={'flex flex-col mb-[50px]'}>
+							<p className={'text-[25px] font-[600]'}>
+								{data.content}
+							</p>
+							<p className={'text-[25px] font-[600]'}>
+								{data.title}
+							</p>
+						</div>
+						<p className={'text-[14px] font-[200] mb-[5px]'}>
+							{data.description.first}
+						</p>
+						<p className={'text-[14px] font-[200] mb-[5px]'}>
+							{data.description.second}
+						</p>
+					</div>
+				</div>
+				<div className={'relative top-[150px]'}>
+					{/*<Icon size={'20px'} margin={'0 0 8px 0'}>*/}
+					{MoveToNextScreenArrowIcon}
+					{/*</Icon>*/}
+					<p
+						className={
+							'text-[16px] font-[600] text-secondary text-center font-iter'
+						}
+					>
+						Scroll down
+					</p>
+				</div>
+			</div>
+		</div>
 	);
 }
 
 export default ProjectSummary;
-
-const _Container = styled.div`
-	display: flex;
-	justify-content: center;
-	background-color: ${GRAY_COLOR_20};
-	width: 100%;
-`;
-
-const _Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	width: 80%;
-	min-height: 645px;
-`;
-
-const _FlexContainer = styled.div`
-	display: flex;
-	justify-content: space-around;
-	width: 80%;
-`;
-
-const _ContentWrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	margin-bottom: 50px;
-`;
-
-const _IconWrapper = styled.div`
-	position: relative;
-	top: 150px;
-`;
-
-const _Title = styled.div`
-	font-size: 70px;
-	font-weight: 700;
-	line-height: 70px;
-`;
-
-const _Content = styled.div`
-	font-size: 25px;
-	font-weight: 200;
-`;
-
-const _Description = styled.div`
-	justify-content: left;
-	font-size: 14px;
-	font-weight: 200;
-	margin-bottom: 5px;
-`;
-
-const _ScrollDownText = styled.p`
-	font-family: Inter;
-	font-weight: 400;
-	font-size: 13px;
-	text-align: center;
-	color: ${SECONDARY_COLOR};
-`;

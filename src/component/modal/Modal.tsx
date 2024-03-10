@@ -1,15 +1,14 @@
 'use client';
 import React, {useState} from 'react';
-import Modal from 'react-modal';
-import styled from 'styled-components';
+// import Modal from 'react-modal';
 import Image from 'next/image';
 
 // // 모달의 기본 스타일을 설정합니다.
-Modal.setAppElement('#yourAppElement');
+// Modal.setAppElement('#yourAppElement');
 
-const Button = styled.button`
-	/* 버튼 스타일을 여기에 추가하세요. */
-`;
+// const Button = styled.button`
+// 	/* 버튼 스타일을 여기에 추가하세요. */
+// `;
 
 type ModalProps = {
 	height?: string;
@@ -29,24 +28,24 @@ const MyModal: React.FC<ModalProps> = ({height, color = 'black'}) => {
 
 	return (
 		<div>
-			<Button onClick={openModal}>Open Modal</Button>
-			<Modal
-				isOpen={modalIsOpen}
-				onRequestClose={closeModal}
-				style={customStyles}
-				contentLabel='Example Modal'
-				ariaHideApp={false}
-			>
-				<Image
-					src={'/pet-img1.png'}
-					alt={'강아지 그림'}
-					width={413}
-					height={750}
-				/>
-				<h2>Hello</h2>
-				<button onClick={closeModal}>close</button>
-				<div>I am a modal</div>
-			</Modal>
+			{/*<Button onClick={openModal}>Open Modal</Button>*/}
+			{/*<Modal*/}
+			{/*	isOpen={modalIsOpen}*/}
+			{/*	onRequestClose={closeModal}*/}
+			{/*	style={customStyles}*/}
+			{/*	contentLabel='Example Modal'*/}
+			{/*	ariaHideApp={false}*/}
+			{/*>*/}
+			{/*	<Image*/}
+			{/*		src={'/pet-img1.png'}*/}
+			{/*		alt={'강아지 그림'}*/}
+			{/*		width={413}*/}
+			{/*		height={750}*/}
+			{/*	/>*/}
+			{/*	<h2>Hello</h2>*/}
+			{/*	<button onClick={closeModal}>close</button>*/}
+			{/*	<div>I am a modal</div>*/}
+			{/*</Modal>*/}
 		</div>
 	);
 };

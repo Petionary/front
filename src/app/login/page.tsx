@@ -1,10 +1,7 @@
-'use client';
-
 import React from 'react';
-import styled from 'styled-components';
 import LoginButton from '@/component/button/LoginButton';
 import {GoogleIcon, KakaoIcon, NaverIcon, RectangleIcon} from '@/icons/default';
-import {Icon} from '@/style/icon';
+// import {Icon} from '@/style/icon';
 
 /**************************************************
  * 로그인 페이지
@@ -20,37 +17,21 @@ const data = {
 
 function Login() {
 	return (
-		<_Container>
-			<_Content>
-				<_Title>{data.title}</_Title>
-				<Icon margin={'0 0 40px 0'}>{RectangleIcon}</Icon>
+		<div className={'flex justify-center'}>
+			<div className={'flex flex-col items-center w-[350px] mt-[140px]'}>
+				<p className={'text-[28px] font-[600] mb-[40px]'}>
+					{data.title}
+				</p>
+				{/*<Icon margin={'0 0 40px 0'}>*/}
+				{RectangleIcon}
+				{/*</Icon>*/}
 				{/*로그인 Auth 에 관한 로직입니다.*/}
 				<LoginButton content={data.button.kakao} icon={KakaoIcon} />
 				<LoginButton content={data.button.google} icon={GoogleIcon} />
 				<LoginButton content={data.button.naver} icon={NaverIcon} />
-			</_Content>
-		</_Container>
+			</div>
+		</div>
 	);
 }
 
 export default Login;
-
-const _Container = styled.div`
-	display: flex;
-	justify-content: center;
-	//width: 100%;
-`;
-
-const _Content = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 350px;
-	margin-top: 140px;
-`;
-
-const _Title = styled.div`
-	font-size: 22px;
-	font-weight: 600;
-	margin-bottom: 40px;
-`;

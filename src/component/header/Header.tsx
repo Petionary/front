@@ -1,11 +1,8 @@
 'use client'; //styled-component ssr 설정 완료 되면 제거 예정
 import React from 'react';
-import styled from 'styled-components';
 import Image from 'next/image';
 import {logoutIcon, MyPageIcon} from '@/icons/default';
-import {Container} from '@/style/common';
 import Panel from '@/component/header/Panel';
-import {WHITE_COLOR} from '@/style/theme';
 
 /**************************************************
  * 메인 페이지
@@ -27,8 +24,8 @@ const data = {
 
 function Header() {
 	return (
-		<_Container>
-			<_Wrapper>
+		<div className={'flex justify-center w-full h-[80px] bg-white'}>
+			<section className={'flex justify-between w-[60%] items-center'}>
 				<Image
 					src={data.logo.src}
 					alt={data.logo.alt}
@@ -36,35 +33,13 @@ function Header() {
 					height={32}
 				/>
 				{/*우측 사용자 패널에 관한 부분입니다.*/}
-				<_MyPanelArea>
+				<aside className={'flex'}>
 					<Panel icon={MyPageIcon} content={data.panel.myPage} />
 					<Panel icon={logoutIcon} content={data.panel.logout} />
-				</_MyPanelArea>
-			</_Wrapper>
-		</_Container>
+				</aside>
+			</section>
+		</div>
 	);
 }
 
 export default Header;
-
-const _Container = styled.div`
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	background-color: ${WHITE_COLOR};
-	height: 80px;
-`;
-
-const _Wrapper = styled.section`
-	display: flex;
-	justify-content: space-between;
-	width: 60%;
-	align-items: center;
-`;
-
-const _MyPanelArea = styled.aside`
-	display: flex;
-	p:first-child {
-		margin-right: 32px;
-	}
-`;

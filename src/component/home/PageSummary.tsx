@@ -1,8 +1,6 @@
-import React, {JSX} from 'react';
-import styled from 'styled-components';
+import React from 'react';
 import InfoView from '@/component/home/InfoView';
 import PlaceCard from '@/component/card/PlaceCard';
-import {GRAY_COLOR_30, GRAY_COLOR_50} from '@/style/theme';
 import {oPageKey} from '@/utils/option';
 import PetCard from '@/component/card/PetCard';
 
@@ -23,84 +21,65 @@ const data = {
 
 type TProps = {
 	pageKey: string;
-	backgroundColor: string;
+	// backgroundColor: string;
 };
 
-function PageSummary({pageKey, backgroundColor}: TProps) {
+function PageSummary({pageKey}: TProps) {
+	const bgColor = {
+		[oPageKey.best]: ' bg-gray_30',
+		[oPageKey.new]: ' bg-gray_20',
+		[oPageKey.report]: ' bg-gray_30',
+	};
+
 	return (
-		<_Container backgroundColor={backgroundColor}>
-			<Wrapper>
+		<div className={`flex justify-center width-[100%] ${bgColor[pageKey]}`}>
+			<div
+				className={'flex flex-col justify-center w-[60%] min-h-[645px]'}
+			>
 				<InfoView
 					title={data.title[pageKey]}
 					description={data.description[pageKey]}
 				/>
 				{pageKey === oPageKey.best && (
-					<_FlexContainer>
+					<div className={'flex justify-between'}>
 						<PlaceCard />
 						<PlaceCard />
 						<PlaceCard />
-					</_FlexContainer>
+					</div>
 				)}
 				{pageKey === oPageKey.new && (
-					<_FlexContainer>
-						<PlaceList>
+					<div className={'flex justify-between'}>
+						<div className={'flex flex-col'}>
 							{data.newPlace.map((p, i) => {
-								return <Place key={i}>{p}</Place>;
+								return (
+									<p
+										className={'text-[16px] mb-[20px]'}
+										key={i}
+									>
+										{p}
+									</p>
+								);
 							})}
-						</PlaceList>
-						<PlaceImage />
-					</_FlexContainer>
+						</div>
+						<div
+							className={
+								'w-[400px] h-[270px] bg-gray_50 rounded-tl-[80px]'
+							}
+						>
+							이미지 넣을 예정
+						</div>
+					</div>
 				)}
 				{pageKey === oPageKey.report && (
-					<_FlexContainer>
+					<div className={'flex justify-between'}>
 						<PetCard />
 						<PetCard />
 						<PetCard />
-					</_FlexContainer>
+					</div>
 				)}
-			</Wrapper>
-		</_Container>
+			</div>
+		</div>
 	);
 }
 
 export default PageSummary;
-
-type TContainer = {
-	backgroundColor: string;
-};
-
-const _Container = styled.div<TContainer>`
-	display: flex;
-	justify-content: center;
-	background-color: ${(props) => props.backgroundColor};
-	width: 100%;
-`;
-
-const Wrapper = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 60%;
-	min-height: 645px;
-`;
-
-const PlaceList = styled.div`
-	display: flex;
-	flex-direction: column;
-`;
-
-const Place = styled.p`
-	font-size: 16px;
-	margin-bottom: 20px;
-`;
-
-const PlaceImage = styled.div`
-	height: 270px;
-	width: 400px;
-	border-radius: 80px 0 0 0;
-	background-color: ${GRAY_COLOR_50};
-`;
-const _FlexContainer = styled.div`
-	display: flex;
-	justify-content: space-between;
-`;

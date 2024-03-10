@@ -1,6 +1,4 @@
-import React, {JSX} from 'react';
-import styled from 'styled-components';
-import {GRAY_COLOR_100, GRAY_COLOR_60, GRAY_COLOR_70} from '@/style/theme';
+import React from 'react';
 
 const data = {
 	allView: '전체보기',
@@ -12,44 +10,26 @@ type TProps = {
 };
 function InfoView({title, description}: TProps) {
 	return (
-		<_Container>
-			<_FlexContainer>
-				<_Title>{title}</_Title>
-				<_ViewAllLink>{data.allView}</_ViewAllLink>
-			</_FlexContainer>
-			<_Description>{description}</_Description>
-		</_Container>
+		<div className={'mb-[40px]'}>
+			<div className={'flex items-center mb-[6px]'}>
+				<h3
+					className={'text-[34px] font-[700] mr-[24px] text-gray_100'}
+				>
+					{title}
+				</h3>
+				<p
+					className={
+						'text-[12px] font-[400] text-gray_70 border-b border-gray_70'
+					}
+				>
+					{data.allView}
+				</p>
+			</div>
+			<p className={'text-[16px] font-[600] text-gray_60'}>
+				{description}
+			</p>
+		</div>
 	);
 }
 
 export default InfoView;
-
-const _Container = styled.div`
-	margin-bottom: 40px;
-`;
-
-const _FlexContainer = styled.div`
-	display: flex;
-	align-items: center;
-	margin-bottom: 6px;
-`;
-
-const _Title = styled.h3`
-	font-size: 34px;
-	font-weight: 700;
-	margin-right: 24px;
-	color: ${GRAY_COLOR_100};
-`;
-
-const _Description = styled.p`
-	font-size: 16px;
-	font-weight: 600;
-	color: ${GRAY_COLOR_60};
-`;
-
-const _ViewAllLink = styled.p`
-	font-size: 12px;
-	font-weight: 400;
-	color: ${GRAY_COLOR_70};
-	border-bottom: 1px solid ${GRAY_COLOR_70};
-`;
