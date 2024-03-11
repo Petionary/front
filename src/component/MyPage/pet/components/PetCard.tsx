@@ -1,10 +1,11 @@
 'use client';
 import React from 'react';
-import {PetIcon} from '@/icons/default';
+
 import {IPet} from '@/types/common';
 import {useRouter} from 'next/navigation';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
+import {PetIcon} from '@/icons/default';
 
 interface IProps {
 	pet: IPet;

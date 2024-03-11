@@ -1,3 +1,4 @@
+import React from 'react';
 /**************************************************
  * icon 모음
  * Figma에서 해당 icon을 Export
@@ -265,7 +266,7 @@ export const PlusIcon = ({className}: TClassName) => (
 		xmlns='http://www.w3.org/2000/svg'
 		className={className}
 	>
-		<g clip-path='url(#clip0_271_2060)'>
+		<g clipPath='url(#clip0_271_2060)'>
 			<rect x='13' width='2' height='28' />
 			<rect
 				x='28'
