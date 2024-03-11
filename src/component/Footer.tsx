@@ -13,3 +13,8 @@ function Footer() {
 }
 
 export default Footer;
+
+// const _Container = styled.div`
+// 	width: 100%;
+// 	border: 1px solid red; //임시 로직입니다.
+// `;
