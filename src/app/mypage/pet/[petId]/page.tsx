@@ -1,5 +1,5 @@
 import React from 'react';
-import PetPage from '@/component/MyPage/pet';
+import PetDetail from '@/component/MyPage/petDetail';
 import {IPet} from '@/types/common';
 
 const pets: IPet[] = [
@@ -35,8 +35,12 @@ const pets: IPet[] = [
 	},
 ];
 
-function Pet() {
-	return <PetPage pets={pets} />;
+interface IProps {
+	params: {petId: number};
 }
 
-export default Pet;
+function Detail({params}: IProps) {
+	return <PetDetail pet={pets[params.petId - 1]} />;
+}
+
+export default Detail;

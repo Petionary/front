@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import React from 'react';
 import Input from '../../common/Input';
 import {IUser} from '../../../../types/common';
 
@@ -9,7 +9,7 @@ interface IProp {
 
 function UserProfileInput({editable, userInput}: IProp) {
 	return (
-		<_Wrapper>
+		<div className='flex m-auto'>
 			<div>
 				<Input label='이메일' value={userInput.email} disabled={true} />
 				<Input
@@ -26,13 +26,8 @@ function UserProfileInput({editable, userInput}: IProp) {
 					disabled={!editable}
 				/>
 			</div>
-		</_Wrapper>
+		</div>
 	);
 }
 
 export default UserProfileInput;
-
-const _Wrapper = styled.div`
-	display: flex;
-	margin: auto;
-`;

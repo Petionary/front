@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import React from 'react';
 import SectionTitle from '../../common/SectionTitle';
 
 function UserPlace() {

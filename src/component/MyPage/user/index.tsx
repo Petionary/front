@@ -1,3 +1,4 @@
+import React from 'react';
 import UserPlace from './components/UserPlace';
 import UserProfile from './components/UserProfile';
 import {IUser} from '../../../types/common';

@@ -1,12 +1,14 @@
+import React from 'react';
 import UserPage from '@/component/MyPage/user';
 import {IUser} from '@/types/common';
 
 const user: IUser = {
+	accountId: 1,
 	email: 'admin.@admin.com',
 	name: 'admin',
 	nickname: 'user1',
-	contact: '010-1234-5678',
-	profileURL: '',
+	phoneNumber: '010-1234-5678',
+	image: '',
 };
 
 function User() {

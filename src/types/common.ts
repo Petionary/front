@@ -1,16 +1,21 @@
 export interface IUser {
+	accountId: number;
 	email: string;
 	name: string;
 	nickname: string;
-	contact: string;
-	profileURL: string;
+	phoneNumber: string;
+	image: string;
 }
 
 export interface IPet {
-	name: string;
-	birthDate: string;
-	gender: string;
-	species: string;
-	specied_detial: string;
-	description: string;
+	petId?: number;
+	createAt?: string;
+	updateAt?: string;
+	petName: string;
+	imgUrl: string;
+	petSpecies: 'DOG' | 'CAT' | 'OTHER';
+	petBirth: string;
+	petGender: 'MALE' | 'FEMALE';
+	speciesDetail: string;
+	content: string;
 }
