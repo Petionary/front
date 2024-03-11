@@ -2,35 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'Pretendard';
+    font-weight: 100;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot?#iefix') format('embedded-opentype'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff2') format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff') format('woff'),
+    url('https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.ttf') format("truetype");
+    font-display: swap;
+}
+
 * ::-webkit-scrollbar {
-	display: none;
+    display: none;
 }
 
 html,
 body {
-	justify-content: center;
-	display: flex;
-	margin: 0px;
-	box-sizing: border-box;
-	font-weight: normal;
+    justify-content: center;
+    display: flex;
+    margin: 0px;
+    box-sizing: border-box;
+    background-color: #F8F8FA;
+    font-weight: normal;
+    font-family: 'Pretendard';
 }
 /* input 기본 스타일 제거(브라우저마다 다름) */
 input,
 textarea {
-	appearance: none;
-	-webkit-appearance: none;
-	-webkit-border-radius: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
 }
 
 /* select 기본 스타일 제거(브라우저마다 다름) */
 select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+div {
+    box-sizing: border-box;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
 	background: transparent;
 	border: none;
 	padding: 0;
-}
-div {
-	box-sizing: border-box;
 }
