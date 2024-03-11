@@ -41,6 +41,8 @@ function PetDetail({pet}: IProps) {
 		setEditToggle(!editToggle);
 	};
 
+	console.log(petInput);
+
 	const handleSaveChange = () => {
 		if (pet) {
 			// 반려동물 상세 페이지일 떄 로직
@@ -48,6 +50,7 @@ function PetDetail({pet}: IProps) {
 		} else {
 			// 반려동물 추가 페이지일 때 로직
 			// 반려동물 인풋 -> 새로운 반려동물 추가 (post)
+			// 추가에 성공하면 반려동물 목록 페이지로 이동
 		}
 		handleEditToggle();
 	};

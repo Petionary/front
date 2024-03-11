@@ -3,6 +3,8 @@ import React from 'react';
 import {PetIcon} from '@/icons/default';
 import {IPet} from '@/types/common';
 import {useRouter} from 'next/navigation';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
 
 interface IProps {
 	pet: IPet;
@@ -22,6 +24,9 @@ const data = {
 
 function PetCard({pet}: IProps) {
 	const {push} = useRouter();
+	dayjs.extend(relativeTime);
+	const petAge = dayjs(pet.petBirth).fromNow(true).split(' ')[0];
+
 	return (
 		<div
 			onClick={() => push(`/mypage/pet/${pet.petId}`)}
@@ -36,7 +41,7 @@ function PetCard({pet}: IProps) {
 				<p>{pet.speciesDetail}</p>
 				<p>{data.genderIcon[pet.petGender]}</p>
 			</div>
-			<p>{pet.petBirth}</p>
+			<p>{petAge}살</p>
 		</div>
 	);
 }
