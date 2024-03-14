@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 
 import {IPet} from '@/types/common';
 import {useRouter} from 'next/navigation';

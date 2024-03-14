@@ -1,13 +1,13 @@
 'use client';
-import React from 'react';
 import SectionTitle from '../common/SectionTitle';
 import Input from '../common/Input';
-import Dropdown from '../common/Dropdown';
+import SelectBox from '../common/SelectBox';
 import {IPet} from '@/types/common';
 import ProfileImage from '../common/ProfileImage';
 import useUploadFile from '@/hooks/useUploadFile';
 import {ChangeEvent, useEffect, useState} from 'react';
 import {useRouter} from 'next/navigation';
+import {oPetGender, oPetSpecies} from '@/utils/option';
 
 interface IProps {
 	pet?: IPet;
@@ -85,12 +85,13 @@ function PetDetail({pet}: IProps) {
 								onChange={handleInputChange}
 								disabled={!editToggle}
 							/>
-							<Dropdown
+							<SelectBox
 								label='성별'
 								name='petGender'
 								value={petInput.petGender}
 								onChange={handleInputChange}
 								disabled={!editToggle}
+								options={oPetGender}
 							/>
 						</div>
 						<Input
@@ -102,12 +103,13 @@ function PetDetail({pet}: IProps) {
 							disabled={!editToggle}
 						/>
 						<div className='flex'>
-							<Dropdown
+							<SelectBox
 								label='구분'
 								name='petSpecies'
 								value={petInput.petSpecies}
 								onChange={handleInputChange}
 								disabled={!editToggle}
+								options={oPetSpecies}
 							/>
 							<Input
 								label='상세 구분'

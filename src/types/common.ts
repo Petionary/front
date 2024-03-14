@@ -23,3 +23,8 @@ export interface IPet {
 	speciesDetail: string;
 	content: string;
 }
+
+export interface IOption {
+	value: string;
+	label: string;
+}
