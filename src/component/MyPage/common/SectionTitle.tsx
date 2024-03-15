@@ -1,3 +1,4 @@
+import React from 'react';
 import {MapIcon} from '@/icons/default';
 
 interface IProps {

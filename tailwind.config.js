@@ -18,6 +18,9 @@ module.exports = {
 				gray_90: '#222222',
 				gray_100: '#1F1F1F',
 			},
+			gridTemplateColumns: {
+				'auto-fill-pet': 'repeat(auto-fill, 236px)',
+			},
 		},
 	},
 	plugins: [],

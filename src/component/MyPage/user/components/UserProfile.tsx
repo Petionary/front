@@ -1,13 +1,12 @@
 'use client';
-import {useEffect, useState} from 'react';
-import styled from 'styled-components';
+import React, {useEffect, useState} from 'react';
 
 import {IUser} from '@/types/common';
 import useUploadFile from '@/hooks/useUploadFile';
 
 import SectionTitle from '../../common/SectionTitle';
-import UserProfileImage from './UserProfileImage';
 import UserProfileInput from './UserProfileInput';
+import ProfileImage from '../../common/ProfileImage';
 
 interface IProps {
 	user: IUser;
@@ -26,8 +25,9 @@ function UserProfile({user}: IProps) {
 		if (uploadedFile.length)
 			setUserInput({
 				...userInput,
-				profileURL: uploadedFile[uploadedFile.length - 1] as string,
+				image: uploadedFile[uploadedFile.length - 1] as string,
 			});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [uploadedFile.length]);
 
 	return (
@@ -42,10 +42,11 @@ function UserProfile({user}: IProps) {
 				</button>
 			</div>
 			<div className='w-full flex mt-[80px] mb-[48px]'>
-				<UserProfileImage
-					profileURL={userInput?.profileURL}
+				<ProfileImage
+					profileURL={userInput?.image}
 					onChangeProfileImage={handleUploadFile}
 					editable={editToggle}
+					type='user'
 				/>
 				<UserProfileInput userInput={userInput} editable={editToggle} />
 			</div>

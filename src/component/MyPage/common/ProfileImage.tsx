@@ -1,14 +1,25 @@
-import {PencilIcon, UserIcon} from '@/icons/default';
+import React from 'react';
+import {PencilIcon, PetIcon, UserIcon} from '@/icons/default';
 import Image from 'next/image';
 import {ChangeEvent} from 'react';
 
 interface IProps {
-	profileURL: string;
+	profileURL?: string;
 	editable: boolean;
+	type: 'user' | 'pet';
+	// eslint-disable-next-line no-unused-vars
 	onChangeProfileImage: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
-function UserProfileImage({
+const data = {
+	defaultImage: {
+		user: <UserIcon className='w-[78px] fill-gray_20' />,
+		pet: <PetIcon className='w-[78px] fill-gray_20' />,
+	},
+};
+
+function ProfileImage({
+	type,
 	editable,
 	profileURL,
 	onChangeProfileImage,
@@ -18,10 +29,9 @@ function UserProfileImage({
 			<input
 				type='file'
 				accept='image'
-				name='profileUrl'
 				onChange={onChangeProfileImage}
 				disabled={!editable}
-				className='sr-only'
+				className='sr-only peer'
 			/>
 			<div className='w-[160px] h-[160px] bg-[#d9d9d9] rounded-full flex justify-center items-center overflow-hidden'>
 				{profileURL ? (
@@ -32,7 +42,7 @@ function UserProfileImage({
 						alt='user'
 					/>
 				) : (
-					<UserIcon className='w-[78px] fill-gray_20' />
+					data.defaultImage[type]
 				)}
 			</div>
 			<div className='w-[28.8px] h-[28.8px] bg-primary rounded-[8px] flex absolute bottom-[11px] right-[14px] justify-center items-center'>
@@ -44,4 +54,4 @@ function UserProfileImage({
 	);
 }
 
-export default UserProfileImage;
+export default ProfileImage;

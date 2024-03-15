@@ -1,3 +1,4 @@
+import React from 'react';
 import UserPlace from './components/UserPlace';
 import UserProfile from './components/UserProfile';
 import {IUser} from '../../../types/common';
@@ -16,7 +17,3 @@ function UserPage({user}: IProps) {
 }
 
 export default UserPage;
-
-/* :-webkit-scrollbar {
-		display: none;
-	} */

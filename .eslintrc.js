@@ -58,6 +58,7 @@ module.exports = {
 		'react/no-unknown-property': 2, // 알 수 없는 속성 사용시 에러 발생
 		'react/require-render-return': 2, // render 함수에서 값을 반환하지 않으면 에러 발생
 		'react-hooks/rules-of-hooks': 'error', // React Hooks 규칙 준수 여부 검사
+		'react/react-in-jsx-scope': 'off', // jsx 및 tsx 파일에서 React import 하지 않아도 에러 발생하지 않음
 		'react-hooks/exhaustive-deps': [
 			'warn',
 			{
