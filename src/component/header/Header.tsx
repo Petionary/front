@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import {LogoutIcon, MyPageIcon} from '@/icons/default';
+import Menu from '@/component/header/Menu';
 import Panel from '@/component/header/Panel';
 
 /**************************************************
@@ -16,14 +17,22 @@ const data = {
 		src: '/logo_img.png',
 	},
 	panel: {
-		logout: 'LOGOUT',
-		myPage: 'MY',
+		myPage: {
+			value: 'my',
+			label: 'MY',
+			icon: MyPageIcon,
+		},
+		logout: {
+			value: 'logout',
+			label: 'LOGOUT',
+			icon: LogoutIcon,
+		},
 	},
 };
 
 function Header() {
 	return (
-		<div className={'flex justify-center w-full h-[80px] bg-white'}>
+		<div className={'flex justify-center w-full h-24 bg-white'}>
 			<section className={'flex justify-between w-[60%] items-center'}>
 				<Image
 					src={data.logo.src}
@@ -31,11 +40,12 @@ function Header() {
 					width={150}
 					height={32}
 				/>
+
+				{/*메뉴에 관한 부분 입니다.*/}
+				<Menu />
+
 				{/*우측 사용자 패널에 관한 부분입니다.*/}
-				<aside className={'flex'}>
-					<Panel icon={<MyPageIcon />} content={data.panel.myPage} />
-					<Panel icon={<LogoutIcon />} content={data.panel.logout} />
-				</aside>
+				<Panel />
 			</section>
 		</div>
 	);

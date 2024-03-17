@@ -23,6 +23,9 @@ type TClassName = {
 	className?: string;
 };
 
+/**************************************************
+ * 헤더 상단 우측 패널 부분입니다. 로그이웃 아이콘입니다.
+ **************************************************/
 export const LogoutIcon = ({className}: TClassName) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
@@ -40,6 +43,9 @@ export const LogoutIcon = ({className}: TClassName) => (
 	</svg>
 );
 
+/**************************************************
+ * 헤더 상단 우측 패널 부분입니다. 마이페이지 아이콘입니다.
+ **************************************************/
 export const MyPageIcon = ({className}: TClassName) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'

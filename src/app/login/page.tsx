@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginButton from '@/component/button/LoginButton';
+import LoginButton from '@/component/login/button/LoginButton';
 import {GoogleIcon, KakaoIcon, NaverIcon, RectangleIcon} from '@/icons/default';
 // import {Icon} from '@/style/icon';
 
@@ -22,16 +22,9 @@ function Login() {
 				<p className={'text-[28px] font-[600] mb-[40px]'}>
 					{data.title}
 				</p>
-				{/*<Icon margin={'0 0 40px 0'}>*/}
-				<RectangleIcon />
-				{/*</Icon>*/}
+				<RectangleIcon className={'mb-8'} />
 				{/*로그인 Auth 에 관한 로직입니다.*/}
-				<LoginButton content={data.button.kakao} icon={<KakaoIcon />} />
-				<LoginButton
-					content={data.button.google}
-					icon={<GoogleIcon />}
-				/>
-				<LoginButton content={data.button.naver} icon={<NaverIcon />} />
+				<LoginButton />
 			</div>
 		</div>
 	);

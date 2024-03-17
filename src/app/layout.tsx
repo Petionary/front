@@ -2,9 +2,9 @@ import React from 'react';
 import '@/app/globals.css';
 
 import Head from '@/app/head';
-import Footer from '@/component/Footer';
+import Footer from '@/component/footer/Footer';
 import Providers from '@/providers/Providers';
-import Header from '@/component/Header';
+import Header from '@/component/header/Header';
 
 /**************************************************
  * 전역 Layout
