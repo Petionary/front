@@ -1,51 +1,89 @@
 'use client';
-import React from 'react';
+import React, {useMemo} from 'react';
 import {GoogleIcon, KakaoIcon, NaverIcon} from '@/icons/default';
+import {useRouter} from 'next/navigation';
+import {url} from '@/utils/url';
+import axios from 'axios';
 
 /**************************************************
  * 소셜 로그인 버튼
  **************************************************/
 
-const data = {
-	kakao: {value: 'kakao', label: '카카오 로그인', icon: KakaoIcon},
-	google: {value: 'google', label: '구글 로그인', icon: GoogleIcon},
-	naver: {value: 'naver', label: '네이버 로그인', icon: NaverIcon},
+export const loginInfo = {
+	kakao: {
+		value: 'kakao',
+		label: '카카오 로그인',
+		icon: KakaoIcon,
+		url: `https://kauth.kakao.com/oauth/authorize`,
+	},
+	naver: {
+		value: 'naver',
+		label: '네이버 로그인',
+		icon: NaverIcon,
+		url: 'https://nid.naver.com/oauth2.0/authorize?response_type=code',
+	},
+	authInfo: {
+		redirectUrl: 'http://localhost:3000/login',
+	},
 };
 
-function LoginButton() {
-	//TODO:: 로그인 체크 로직 구현 예정
+type TProps = {
+	loginType: string;
+};
+
+function LoginButton({loginType}: TProps) {
+	const {push} = useRouter();
+
+	const loginData = useMemo(() => {
+		return loginInfo[loginType];
+	}, [loginType]);
+
+	const getKakaoAuthInfo = () => {
+		const REDIRECT_URL = `redirect_uri=${loginInfo.authInfo.redirectUrl}`;
+		const KAKAO_CLIENT_ID = `client_id=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}`;
+		window.location.href = `${loginData.url}?${KAKAO_CLIENT_ID}&${REDIRECT_URL}&response_type=code`;
+	};
+
+	const getNaverAuthInfo = () => {
+		const REDIRECT_URL = `redirect_uri=${loginInfo.authInfo.redirectUrl}`;
+		const NAVER_CLIENT_ID = `client_id=${process.env.REACT_APP_NAVER_CLIENT_ID}`;
+		window.location.href = `${loginData.url}&${NAVER_CLIENT_ID}&state=Petionary&${REDIRECT_URL}`;
+	};
+
 	const onClickLogin = () => {
-		console.log(process.env.API_URL);
-		// const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?
-		// client_id=${'REST_API_KEY'}&redirect_uri=${'REDIRECT_URI'}&response_type=code`;
-		// window.location.href = KAKAO_AUTH_URL;
-		// const AUTHORIZATION_CODE: string = new URL(
-		// 	document.location.toString(),
-		// ).searchParams.get('code') as string;
+		// switch (loginType) {
+		// 	case loginInfo.kakao.value:
+		// 		getKakaoAuthInfo();
+		// 		break;
+		// 	case loginInfo.naver.value:
+		// 		getNaverAuthInfo();
+		// 		break;
+		// 	default:
+		// 		return;
+		// }
+		//
+		// const code = new URL(window.location.href).searchParams.get('code');
+		// console.log(code);
+
+		push(url.home);
+		//
+		// push('/');
 	};
 
 	return (
 		<div>
-			{Object.values(data).map((b) => {
-				return (
-					<button
-						key={`button-${b.value}`}
-						className={
-							'bg-white flex items-center pl-[109px] w-[342px] h-[60px] mt-[15px] border border-gray_40 rounded-[4px]'
-						}
-						onClick={onClickLogin}
-					>
-						<b.icon />
-						<p
-							className={
-								'text-[16px] font-[600] text-gray_100 ml-[16px]'
-							}
-						>
-							{b.label}
-						</p>
-					</button>
-				);
-			})}
+			<button
+				key={`button-${loginData.value}`}
+				className={
+					'bg-white flex items-center pl-28 w-96 h-16 mt-4 border border-gray_40 rounded-xl'
+				}
+				onClick={onClickLogin}
+			>
+				<loginData.icon />
+				<p className={'text-[18px] text-gray_100 ml-5'}>
+					{loginData.label}
+				</p>
+			</button>
 		</div>
 	);
 }

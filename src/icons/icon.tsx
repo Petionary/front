@@ -11,12 +11,12 @@ interface IProps {
 }
 
 const colors = {
-	black: ' [&_*]:fill-green ',
+	black: ' [&_*]:fill-gray_100 ',
 };
 
 export function Icon({children, className, size = ''}: IProps) {
 	const baseCss = 'flex items-center justify-center';
-	const sizeCss = size && `[&_svg]:w-[${size}px]`;
+	const sizeCss = size && `[&>svg]:w-[${size}]`;
 	return (
 		<span className={`${baseCss} ${sizeCss}${colors.black}`}>
 			{children}

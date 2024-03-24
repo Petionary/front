@@ -1,40 +1,28 @@
 'use client';
 
 import React from 'react';
-import {LogoutIcon, MyPageIcon} from '@/icons/default';
 import {useRouter} from 'next/navigation';
+import {url} from '@/utils/url';
+import {lPanel} from '@/utils/label';
 
 /**************************************************
  * Header에 들어가는 Panel 부분
  * Logout, MyPage 구현
  **************************************************/
 
-const data = {
-	myPage: {
-		value: 'my',
-		label: 'MY',
-		icon: MyPageIcon,
-	},
-	logout: {
-		value: 'logout',
-		label: 'LOGOUT',
-		icon: LogoutIcon,
-	},
-};
-
 function Panel() {
 	//TODO:: 마이페이지는 이동 로그인은 기능 수행 저장
 	// const onClickPanel = (v) => {};
-	const {myPage, logout} = data;
+	const {myPage, logout} = lPanel;
 	const {push} = useRouter();
 
 	const onClickPageMove = () => {
-		push('/mypage');
+		push(url.myPage);
 	};
 
 	const onClickLogout = () => {
 		alert('로그아웃');
-		push('/login');
+		push(url.login);
 	};
 
 	return (

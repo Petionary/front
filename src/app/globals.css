@@ -51,6 +51,6 @@ div {
 	-moz-appearance: none;
 	appearance: none;
 	background: transparent;
-	border: none;
+	/*border: none;*/
 	padding: 0;
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 import ProjectSummary from '@/component/home/ProjectSummary';
-import PageSummary from '@/component/home/PageSummary';
-import {oPageKey} from '@/utils/option';
+import PageSummary, {oPageKey} from '@/component/home/PageSummary';
 
 /**************************************************
  * 메인 페이지

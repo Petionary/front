@@ -3,6 +3,7 @@ import Image from 'next/image';
 import {LogoutIcon, MyPageIcon} from '@/icons/default';
 import Menu from '@/component/header/Menu';
 import Panel from '@/component/header/Panel';
+import {lMenu} from '@/utils/label';
 
 /**************************************************
  * 메인 페이지
@@ -33,17 +34,28 @@ const data = {
 function Header() {
 	return (
 		<div className={'flex justify-center w-full h-24 bg-white'}>
-			<section className={'flex justify-between w-[60%] items-center'}>
+			<section
+				className={'flex justify-between w-3/5 min-w-max items-center'}
+			>
 				<Image
 					src={data.logo.src}
 					alt={data.logo.alt}
 					width={150}
 					height={32}
+					className={'mr-8'}
 				/>
-
 				{/*메뉴에 관한 부분 입니다.*/}
-				<Menu />
-
+				<section className='flex'>
+					{Object.values(lMenu).map((m) => {
+						return (
+							<Menu
+								key={`menu-${m.value}`}
+								label={m.label}
+								value={m.value}
+							/>
+						);
+					})}
+				</section>
 				{/*우측 사용자 패널에 관한 부분입니다.*/}
 				<Panel />
 			</section>

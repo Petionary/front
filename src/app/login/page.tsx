@@ -1,6 +1,7 @@
 import React from 'react';
-import LoginButton from '@/component/login/button/LoginButton';
+import LoginButton, {loginInfo} from '@/component/login/button/LoginButton';
 import {GoogleIcon, KakaoIcon, NaverIcon, RectangleIcon} from '@/icons/default';
+import {Icon} from '@/icons/icon';
 // import {Icon} from '@/style/icon';
 
 /**************************************************
@@ -9,22 +10,24 @@ import {GoogleIcon, KakaoIcon, NaverIcon, RectangleIcon} from '@/icons/default';
 const data = {
 	title: '간편 로그인',
 	button: {
-		kakao: '카카오 로그인',
-		google: '구글 로그인',
-		naver: '네이버 로그인',
+		kakao: 'kakao',
+		naver: 'naver',
 	},
 };
 
 function Login() {
 	return (
-		<div className={'flex justify-center'}>
+		<div className={'flex justify-center h-[672px]'}>
 			<div className={'flex flex-col items-center w-[350px] mt-[140px]'}>
 				<p className={'text-[28px] font-[600] mb-[40px]'}>
 					{data.title}
 				</p>
 				<RectangleIcon className={'mb-8'} />
 				{/*로그인 Auth 에 관한 로직입니다.*/}
-				<LoginButton />
+				<div>
+					<LoginButton loginType={data.button.kakao} />
+					<LoginButton loginType={data.button.naver} />
+				</div>
 			</div>
 		</div>
 	);

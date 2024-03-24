@@ -6,7 +6,7 @@ import React from 'react';
  **************************************************/
 function Footer() {
 	return (
-		<footer className='flex justify-center w-full h-[100px] bg-gray_20'>
+		<footer className='flex justify-center w-full h-24 bg-gray_20'>
 			Footer 로직
 		</footer>
 	);

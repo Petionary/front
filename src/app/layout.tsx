@@ -19,7 +19,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 						<Header />
 						<div
 							className={
-								'h-[calc(100vh-80px)] flex flex-col content-between w-[100%] bg-gray_10 overflow-scroll'
+								' flex flex-col content-between w-[100%] bg-gray_10 overflow-scroll'
 							}
 						>
 							{children}
