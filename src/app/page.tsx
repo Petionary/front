@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectSummary from '@/component/home/ProjectSummary';
 import PageSummary, {oPageKey} from '@/component/home/PageSummary';
+import MyModal from '@/component/modal/Modal';
 
 /**************************************************
  * 메인 페이지
@@ -13,6 +14,8 @@ function Home() {
 			<PageSummary pageKey={oPageKey.best} />
 			<PageSummary pageKey={oPageKey.new} />
 			<PageSummary pageKey={oPageKey.report} />
+
+			<MyModal />
 		</div>
 	);
 }

@@ -1,9 +1,11 @@
 'use client';
-import React, {useMemo} from 'react';
-import {GoogleIcon, KakaoIcon, NaverIcon} from '@/icons/default';
+import React, {useEffect, useMemo} from 'react';
+import {KakaoIcon, NaverIcon} from '@/icons/default';
 import {useRouter} from 'next/navigation';
-import {url} from '@/utils/url';
-import axios from 'axios';
+import {useSearchParams} from 'next/navigation';
+import {useGetLoginController} from '@/services/auth/useAuthService';
+import {authState} from '@/store/auth';
+import {useSetRecoilState} from 'recoil';
 
 /**************************************************
  * 소셜 로그인 버튼
@@ -32,7 +34,16 @@ type TProps = {
 };
 
 function LoginButton({loginType}: TProps) {
-	const {push} = useRouter();
+	const router = useRouter();
+	const params = useSearchParams();
+	const AUTHORIZE_CODE = params.get('code');
+	const setAuth = useSetRecoilState(authState);
+	//사용 const auth = useRecoilValue(authState);
+
+	const {isLoading, data, isError, error} = useGetLoginController(
+		'kakao',
+		AUTHORIZE_CODE || '',
+	);
 
 	const loginData = useMemo(() => {
 		return loginInfo[loginType];
@@ -51,24 +62,32 @@ function LoginButton({loginType}: TProps) {
 	};
 
 	const onClickLogin = () => {
-		// switch (loginType) {
-		// 	case loginInfo.kakao.value:
-		// 		getKakaoAuthInfo();
-		// 		break;
-		// 	case loginInfo.naver.value:
-		// 		getNaverAuthInfo();
-		// 		break;
-		// 	default:
-		// 		return;
-		// }
-		//
-		// const code = new URL(window.location.href).searchParams.get('code');
-		// console.log(code);
-
-		push(url.home);
-		//
-		// push('/');
+		switch (loginType) {
+			case loginInfo.kakao.value:
+				getKakaoAuthInfo();
+				break;
+			case loginInfo.naver.value:
+				getNaverAuthInfo();
+				break;
+			default:
+				return;
+		}
 	};
+
+	useEffect(() => {
+		console.log(data, isError);
+		if (data) {
+			sessionStorage.setItem('sessionId', 'dasd');
+			setAuth({
+				...{usename: 'asdasd'},
+				type: 'login',
+			});
+			router.push('/');
+		}
+		if (isError) {
+			console.log(error);
+		}
+	}, [data]);
 
 	return (
 		<div>

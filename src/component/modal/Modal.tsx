@@ -1,6 +1,6 @@
 'use client';
 import React, {useState} from 'react';
-// import Modal from 'react-modal';
+import Modal from 'react-modal';
 import Image from 'next/image';
 
 // // 모달의 기본 스타일을 설정합니다.
@@ -16,7 +16,7 @@ type ModalProps = {
 };
 
 const MyModal: React.FC<ModalProps> = ({height, color = 'black'}) => {
-	const [modalIsOpen, setModalIsOpen] = useState(false);
+	const [modalIsOpen, setModalIsOpen] = useState(true);
 
 	const openModal = () => {
 		setModalIsOpen(true);
@@ -29,23 +29,23 @@ const MyModal: React.FC<ModalProps> = ({height, color = 'black'}) => {
 	return (
 		<div>
 			{/*<Button onClick={openModal}>Open Modal</Button>*/}
-			{/*<Modal*/}
-			{/*	isOpen={modalIsOpen}*/}
-			{/*	onRequestClose={closeModal}*/}
-			{/*	style={customStyles}*/}
-			{/*	contentLabel='Example Modal'*/}
-			{/*	ariaHideApp={false}*/}
-			{/*>*/}
-			{/*	<Image*/}
-			{/*		src={'/pet-img1.png'}*/}
-			{/*		alt={'강아지 그림'}*/}
-			{/*		width={413}*/}
-			{/*		height={750}*/}
-			{/*	/>*/}
-			{/*	<h2>Hello</h2>*/}
-			{/*	<button onClick={closeModal}>close</button>*/}
-			{/*	<div>I am a modal</div>*/}
-			{/*</Modal>*/}
+			<Modal
+				isOpen={modalIsOpen}
+				onRequestClose={closeModal}
+				style={customStyles}
+				contentLabel='Example Modal'
+				ariaHideApp={false}
+			>
+				<Image
+					src={'/pet-img1.png'}
+					alt={'강아지 그림'}
+					width={413}
+					height={750}
+				/>
+				<h2>Hello</h2>
+				<button onClick={closeModal}>close</button>
+				<div>I am a modal</div>
+			</Modal>
 		</div>
 	);
 };
