@@ -1,3 +1,6 @@
+'use client';
+import {useParams} from 'next/navigation';
+import {useRouter} from 'next/router';
 import React from 'react';
 
 /**************************************************
@@ -5,6 +8,8 @@ import React from 'react';
  * 차후 구현 예정
  **************************************************/
 function Footer() {
+	// const {pathname} = useRouter();
+	// console.log(pathname);
 	return (
 		<footer className='flex justify-center w-full h-[100px] bg-gray_20'>
 			Footer 로직

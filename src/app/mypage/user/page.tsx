@@ -1,5 +1,5 @@
 import React from 'react';
-import UserPage from '@/component/MyPage/user';
+import UserPage from '@/component/mypage/user';
 import {IUser} from '@/types/common';
 
 const user: IUser = {

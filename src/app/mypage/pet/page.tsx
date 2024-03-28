@@ -1,5 +1,5 @@
 import React from 'react';
-import PetPage from '@/component/MyPage/pet';
+import PetPage from '@/component/mypage/pet';
 import {IPet} from '@/types/common';
 
 const pets: IPet[] = [
