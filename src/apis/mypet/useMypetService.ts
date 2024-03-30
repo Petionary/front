@@ -1,21 +1,25 @@
 import {AxiosError, AxiosResponse} from 'axios';
 import {useMutation, useQuery, useQueryClient} from '@tanstack/react-query';
-import {postPetApi, putPetApi} from './api';
-import {petQueryKeys, petQueryOptions} from './queries';
+import {postMyPetApi, putMyPetApi} from './api';
+import {mypetQueryKeys, mypetQueryOptions} from './queries';
 import {IMutationOptions, IPet, IQueryOptions} from '@/types/common';
 
-export const useGetPetDetailApi = ({id}: IQueryOptions) => {
-	return useQuery({...petQueryOptions.detail(id as number)});
+export const useGetMyPetDetailApi = ({id}: IQueryOptions) => {
+	return useQuery({...mypetQueryOptions.detail(id as number)});
 };
 
-export const usePostPetApi = ({onError, onSuccess}: IMutationOptions) => {
+export const usePostMyPetApi = ({
+	mutationInput,
+	onError,
+	onSuccess,
+}: IMutationOptions<IPet>) => {
 	const queryClient = useQueryClient();
 	return useMutation({
-		mutationFn: postPetApi,
+		mutationFn: () => postMyPetApi(mutationInput as IPet),
 		onSuccess: (response: AxiosResponse) => {
 			onSuccess(response);
 			queryClient.invalidateQueries({
-				queryKey: petQueryKeys.all,
+				queryKey: mypetQueryKeys.all,
 			});
 		},
 		onError: (error: AxiosError) => {
@@ -24,7 +28,8 @@ export const usePostPetApi = ({onError, onSuccess}: IMutationOptions) => {
 	});
 };
 
-export const usePutPetApi = ({
+export const usePutMyPetApi = ({
+	accountId,
 	id,
 	mutationInput,
 	onError,
@@ -32,14 +37,19 @@ export const usePutPetApi = ({
 }: IMutationOptions<IPet>) => {
 	const queryClient = useQueryClient();
 	return useMutation({
-		mutationFn: () => putPetApi(id as number, mutationInput as IPet),
+		mutationFn: () =>
+			putMyPetApi(
+				accountId as number,
+				id as number,
+				mutationInput as IPet,
+			),
 		onSuccess: (response: AxiosResponse) => {
 			onSuccess(response);
 			queryClient.invalidateQueries({
-				queryKey: petQueryKeys.detail(id as number),
+				queryKey: mypetQueryKeys.detail(id as number),
 			});
 			queryClient.invalidateQueries({
-				queryKey: petQueryKeys.all,
+				queryKey: mypetQueryKeys.all,
 			});
 		},
 		onError: (error: AxiosError) => {

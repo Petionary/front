@@ -7,7 +7,7 @@ import axiosInstance from '..';
  * return : Promise<any>
  **************************************************/
 
-export const getUserDetailApi = async (id: number) => {
+export const getMypageApi = async (id: number) => {
 	const response = await axiosInstance.get(`mypage/${id}`);
 	return response;
 };
@@ -18,7 +18,7 @@ export const getUserDetailApi = async (id: number) => {
  * return : Promise<any>
  **************************************************/
 
-export const putUserDetailApi = async (
+export const putMypageApi = async (
 	id: number,
 	mypageAccountInfoRequest: IUser,
 ) => {
@@ -35,7 +35,7 @@ export const putUserDetailApi = async (
  * return : Promise<any>
  **************************************************/
 
-export const deleteUserApi = async (id: number) => {
+export const deleteMypageApi = async (id: number) => {
 	const response = await axiosInstance.delete(`mypage/${id}`);
 	return response;
 };
