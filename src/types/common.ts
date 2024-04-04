@@ -39,6 +39,7 @@ export interface IQueryProps<ResponseType = void> {
 
 export interface IMutationOptions<T = unknown> {
 	id?: number;
+	accountId?: number;
 	mutationInput?: T;
 	// eslint-disable-next-line no-unused-vars
 	onSuccess: (response: AxiosResponse) => void;

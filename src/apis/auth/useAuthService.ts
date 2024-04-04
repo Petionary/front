@@ -1,6 +1,6 @@
 import {useQuery} from '@tanstack/react-query';
 import {getLoginControllerApi} from './api';
-import {TSocialLogin} from '@/types/common';
+import {IQueryOptions, TSocialLogin} from '@/types/common';
 
 /**************************************************
  * 로그인 service
@@ -8,9 +8,14 @@ import {TSocialLogin} from '@/types/common';
  * return : {data, refetch, isError, error, isLoading, ...}
  **************************************************/
 
-export const useGetLoginController = (social: TSocialLogin, code: string) => {
+export const useGetLoginController = (
+	social: TSocialLogin,
+	code: string,
+	options: IQueryOptions,
+) => {
 	return useQuery({
 		queryKey: ['auth'],
 		queryFn: () => getLoginControllerApi(social, code),
+		...options,
 	});
 };

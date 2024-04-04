@@ -7,7 +7,7 @@ import axiosInstance from '..';
  * return : Promise<any>
  **************************************************/
 
-export const getPetDetailApi = async (petId: number) => {
+export const getMyPetDetailApi = async (petId: number) => {
 	const response = await axiosInstance.get(`mypet/${petId}`);
 	return response;
 };
@@ -18,7 +18,7 @@ export const getPetDetailApi = async (petId: number) => {
  * return : Promise<any>
  **************************************************/
 
-export const postPetApi = async (mypetCreateRequest: IPet) => {
+export const postMyPetApi = async (mypetCreateRequest: IPet) => {
 	const response = await axiosInstance.post('mypet', mypetCreateRequest);
 	return response;
 };
@@ -29,9 +29,13 @@ export const postPetApi = async (mypetCreateRequest: IPet) => {
  * return : Promise<any>
  **************************************************/
 
-export const putPetApi = async (petId: number, mypetUpdateRequest: IPet) => {
+export const putMyPetApi = async (
+	accounrId: number,
+	petId: number,
+	mypetUpdateRequest: IPet,
+) => {
 	const response = await axiosInstance.put(
-		`mypet/${petId}`,
+		`mypet/${accounrId}/${petId}`,
 		mypetUpdateRequest,
 	);
 	return response;
