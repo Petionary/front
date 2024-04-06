@@ -32,6 +32,25 @@ export interface IOption {
 	label: string;
 }
 
+export interface IAddress {
+	area: string;
+	city: string;
+	localAddress: string;
+}
+
+export interface ILocation {
+	latitude: number;
+	longitude: number;
+}
+
+export interface IPlace {
+	name: string;
+	phoneNumber: string;
+	image: string;
+	latlng: ILocation;
+	address: IAddress;
+}
+
 export interface IQueryProps<ResponseType = void> {
 	queryKey: QueryKey;
 	qeuryFn: () => Promise<ResponseType>;
