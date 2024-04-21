@@ -10,7 +10,7 @@ import {IQueryOptions, TSocialLogin} from '@/types/common';
 
 export const useGetLoginController = (
 	social: TSocialLogin,
-	code: string,
+	code: string | null,
 	options: IQueryOptions,
 ) => {
 	return useQuery({

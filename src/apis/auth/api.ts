@@ -9,7 +9,7 @@ import axiosInstance from '..';
 
 export const getLoginControllerApi = async (
 	social: TSocialLogin,
-	code: string,
+	code: string | null,
 ) => {
 	const response = await axiosInstance.get(`login/oauth2/${social}-login`, {
 		params: {code},

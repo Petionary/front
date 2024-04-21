@@ -1,6 +1,6 @@
 export const url = {
 	home: '/',
-	myPage: '/mypage',
+	myPage: '/mypage/pet',
 	login: '/login',
 	map: '/map',
 	list: '/list',

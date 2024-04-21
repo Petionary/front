@@ -1,6 +1,5 @@
 import React from 'react';
 import Image from 'next/image';
-import {LogoutIcon, MyPageIcon} from '@/icons/default';
 import Menu from '@/component/header/Menu';
 import Panel from '@/component/header/Panel';
 import {lMenu} from '@/utils/label';
@@ -16,18 +15,6 @@ const data = {
 	logo: {
 		alt: '프로젝트 로고',
 		src: '/logo_img.png',
-	},
-	panel: {
-		myPage: {
-			value: 'my',
-			label: 'MY',
-			icon: MyPageIcon,
-		},
-		logout: {
-			value: 'logout',
-			label: 'LOGOUT',
-			icon: LogoutIcon,
-		},
 	},
 };
 

@@ -4,12 +4,12 @@ import {recoilPersist} from 'recoil-persist';
 /**************************************************
  * OAuth 로그인 시 토큰값을 저장하기 위한 store 입니다.
  **************************************************/
-const sessionStorage =
-	typeof window !== 'undefined' ? window.sessionStorage : undefined;
+const localStorage =
+	typeof window !== 'undefined' ? window.localStorage : undefined;
 
 const {persistAtom} = recoilPersist({
 	key: 'recoil-persist',
-	storage: sessionStorage,
+	storage: localStorage,
 });
 
 export const authState = atom({

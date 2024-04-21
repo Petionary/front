@@ -302,3 +302,21 @@ export const ArrowIcon = ({className}: TClassName) => (
 		<path d='M1 1L6 7L11 1' stroke='#555555' />
 	</svg>
 );
+
+export const XShapeIcon = ({className}: TClassName) => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='12'
+		height='18'
+		viewBox='0 0 18 18'
+		fill='none'
+		className={className}
+	>
+		<path
+			fill-rule='evenodd'
+			clip-rule='evenodd'
+			d='M9.00002 7.50003L1.5 0L0 1.5L7.50003 9.00003L3.08057e-05 16.5L1.50003 18L9.00003 10.5L16.5 18L18 16.5L10.5 9.00003L18 1.50005L16.5 4.9879e-05L9.00002 7.50003Z'
+			fill='#1F1F1F'
+		/>
+	</svg>
+);

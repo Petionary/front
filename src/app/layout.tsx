@@ -5,10 +5,10 @@ import Head from '@/app/head';
 import Footer from '@/component/footer/Footer';
 import Providers from '@/providers/Providers';
 import Header from '@/component/header/Header';
-
 /**************************************************
  * 전역 Layout
  **************************************************/
+
 export default function RootLayout({children}: {children: React.ReactNode}) {
 	return (
 		<html>
@@ -32,14 +32,3 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 		</html>
 	);
 }
-
-// const _Container = styled.div`
-// 	display: flex;
-// 	flex-direction: column;
-// 	justify-content: space-between;
-// 	//flex: 1;
-// 	width: 100%;
-// 	height: calc(100vh - 80px);
-// 	background-color: ${GRAY_COLOR_10};
-// 	overflow: scroll;
-// `;

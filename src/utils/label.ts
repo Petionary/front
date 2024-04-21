@@ -19,11 +19,19 @@ export const lPanel = {
 	myPage: {
 		value: 'my',
 		label: 'MY',
+		type: 'login',
 		icon: MyPageIcon,
 	},
 	logout: {
 		value: 'logout',
 		label: 'LOGOUT',
+		type: 'login',
+		icon: LogoutIcon,
+	},
+	login: {
+		value: 'login',
+		label: 'Login',
+		type: 'logout',
 		icon: LogoutIcon,
 	},
 };

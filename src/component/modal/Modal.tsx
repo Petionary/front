@@ -1,76 +1,113 @@
 'use client';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import Image from 'next/image';
+import NameEntryComponent from '@/component/modal/NameEntryComponent';
+import FavoriteLocalitySelector from '@/component/modal/FavoriteLocalitySelector';
+import WelcomeMessageDisplay from '@/component/modal/WelcomeMessageDisplay';
 
-// // 모달의 기본 스타일을 설정합니다.
-// Modal.setAppElement('#yourAppElement');
-
-// const Button = styled.button`
-// 	/* 버튼 스타일을 여기에 추가하세요. */
-// `;
-
-type ModalProps = {
-	height?: string;
-	color?: string;
+export const modalType = {
+	name: 'name',
+	location: 'location',
+	welcome: 'welcome',
 };
 
-const MyModal: React.FC<ModalProps> = ({height, color = 'black'}) => {
+function MyModal() {
 	const [modalIsOpen, setModalIsOpen] = useState(true);
+	const [modalPage, setModalPage] = useState('name');
 
-	const openModal = () => {
-		setModalIsOpen(true);
+	const onClickClose = () => {
+		setModalIsOpen(false);
 	};
 
-	const closeModal = () => {
-		setModalIsOpen(false);
+	const onClickNext = () => {
+		switch (modalPage) {
+			case modalType.name:
+				setModalPage(modalType.location);
+				break;
+			case modalType.location:
+				setModalPage(modalType.welcome);
+				break;
+			default:
+				break;
+		}
+	};
+
+	const onClickBack = () => {
+		switch (modalPage) {
+			case modalType.welcome:
+				setModalPage(modalType.location);
+				break;
+			case modalType.location:
+				setModalPage(modalType.name);
+				break;
+			default:
+				break;
+		}
 	};
 
 	return (
 		<div>
-			{/*<Button onClick={openModal}>Open Modal</Button>*/}
 			<Modal
 				isOpen={modalIsOpen}
-				onRequestClose={closeModal}
 				style={customStyles}
-				contentLabel='Example Modal'
 				ariaHideApp={false}
+				shouldCloseOnOverlayClick={false}
 			>
-				<Image
-					src={'/pet-img1.png'}
-					alt={'강아지 그림'}
-					width={413}
-					height={750}
-				/>
-				<h2>Hello</h2>
-				<button onClick={closeModal}>close</button>
-				<div>I am a modal</div>
+				<div className={'flex'}>
+					<aside>
+						<Image
+							src={'/pet-img1.png'}
+							alt={'강아지 그림'}
+							width={413}
+							height={30}
+						/>
+					</aside>
+					<section className={'w-1/2'}>
+						{modalPage === modalType.name && (
+							<NameEntryComponent
+								type={modalPage}
+								onClickBack={onClickBack}
+								onClickNext={onClickNext}
+							/>
+						)}
+						{modalPage === modalType.location && (
+							<FavoriteLocalitySelector
+								type={modalPage}
+								onClickBack={onClickBack}
+								onClickNext={onClickNext}
+							/>
+						)}
+						{modalPage === modalType.welcome && (
+							<WelcomeMessageDisplay
+								type={modalPage}
+								onClickClose={onClickClose}
+							/>
+						)}
+					</section>
+				</div>
 			</Modal>
 		</div>
 	);
-};
+}
 
 export default MyModal;
 
 const customStyles = {
+	overlay: {
+		backgroundColor: ' rgba(0, 0, 0, 0.4)',
+	},
 	content: {
 		top: '50%',
-		maxWidth: '814px',
-		width: '80%',
-		height: '750px',
+		width: '800px',
 		padding: 0,
 		left: '50%',
 		right: 'auto',
 		bottom: 'auto',
 		marginRight: '-50%',
+		borderRadius: '120px 10px 10px 10px',
 		transform: 'translate(-50%, -50%)',
-		borderRadius: '120px, 0px, 0px, 8px',
-		border: '1px solid red', //임시 로직입니다.
+		overflow: 'hidden',
+		boxShadow: '2px 2px 2px rgba(0, 0, 0, 0.25)',
 	},
 };
-
-// const CustomModal = styled(Modal)`
-// 	.ReactModal__Content {
-// 		width: 100px;
-// 	}
-// `;

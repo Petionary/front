@@ -1,16 +1,10 @@
 'use client';
 import React, {useEffect, useMemo} from 'react';
 import {KakaoIcon, NaverIcon} from '@/icons/default';
-import {useRouter} from 'next/navigation';
-import {useSearchParams} from 'next/navigation';
-import {useGetLoginController} from '@/services/auth/useAuthService';
-import {authState} from '@/store/auth';
-import {useSetRecoilState} from 'recoil';
 
 /**************************************************
  * 소셜 로그인 버튼
  **************************************************/
-
 export const loginInfo = {
 	kakao: {
 		value: 'kakao',
@@ -34,17 +28,6 @@ type TProps = {
 };
 
 function LoginButton({loginType}: TProps) {
-	const router = useRouter();
-	const params = useSearchParams();
-	const AUTHORIZE_CODE = params.get('code');
-	const setAuth = useSetRecoilState(authState);
-	//사용 const auth = useRecoilValue(authState);
-
-	const {isLoading, data, isError, error} = useGetLoginController(
-		'kakao',
-		AUTHORIZE_CODE || '',
-	);
-
 	const loginData = useMemo(() => {
 		return loginInfo[loginType];
 	}, [loginType]);
@@ -52,13 +35,13 @@ function LoginButton({loginType}: TProps) {
 	const getKakaoAuthInfo = () => {
 		const REDIRECT_URL = `redirect_uri=${loginInfo.authInfo.redirectUrl}`;
 		const KAKAO_CLIENT_ID = `client_id=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}`;
-		window.location.href = `${loginData.url}?${KAKAO_CLIENT_ID}&${REDIRECT_URL}&response_type=code`;
+		window.location.href = `${loginData.url}&${KAKAO_CLIENT_ID}&${REDIRECT_URL}/kakao&response_type=code`;
 	};
 
 	const getNaverAuthInfo = () => {
 		const REDIRECT_URL = `redirect_uri=${loginInfo.authInfo.redirectUrl}`;
-		const NAVER_CLIENT_ID = `client_id=${process.env.REACT_APP_NAVER_CLIENT_ID}`;
-		window.location.href = `${loginData.url}&${NAVER_CLIENT_ID}&state=Petionary&${REDIRECT_URL}`;
+		const NAVER_CLIENT_ID = `client_id=${process.env.NEXT_PUBLIC_NAVER_CLIENT_ID}`;
+		window.location.href = `${loginData.url}&${NAVER_CLIENT_ID}&${REDIRECT_URL}/naver&state=false`;
 	};
 
 	const onClickLogin = () => {
@@ -73,21 +56,6 @@ function LoginButton({loginType}: TProps) {
 				return;
 		}
 	};
-
-	useEffect(() => {
-		console.log(data, isError);
-		if (data) {
-			sessionStorage.setItem('sessionId', 'dasd');
-			setAuth({
-				...{usename: 'asdasd'},
-				type: 'login',
-			});
-			router.push('/');
-		}
-		if (isError) {
-			console.log(error);
-		}
-	}, [data]);
 
 	return (
 		<div>
