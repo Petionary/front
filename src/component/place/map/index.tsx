@@ -1,8 +1,6 @@
 'use client';
-import PlaceCard from '@/component/card/PlaceCard';
-import {ArrowIcon} from '@/icons/default';
-import {useEffect, useRef, useState} from 'react';
-import PlaceDetailContainer from './components/PlaceDetailContainer';
+
+import {useEffect, useRef} from 'react';
 import PlaceListContainer from './components/PlaceListContainer';
 
 declare global {
@@ -14,11 +12,11 @@ declare global {
 
 function Map() {
 	const container = useRef(null);
-	const [listToggle, setListToggle] = useState(true);
 
 	useEffect(() => {
 		const script = document.createElement('script');
-		script.src = `//dapi.kakao.com/v2/maps/sdk.js?appKey=${process.env.NEXT_PUBLIC_KAKAO_MAP_KEY}&autoload=false`;
+		script.async = true;
+		script.src = `//dapi.kakao.com/v2/maps/sdk.js?appKey=${process.env.NEXT_PUBLIC_KAKAO_MAP_KEY}&libraries=services&autoload=false`;
 		document.head.appendChild(script);
 
 		script.onload = () => {
@@ -35,11 +33,7 @@ function Map() {
 
 	return (
 		<div id='container' ref={container} className='w-full h-full relative'>
-			<PlaceListContainer
-				openToggle={listToggle}
-				onClickOpen={() => setListToggle(!listToggle)}
-			/>
-			{/* 필터 옵션 */}
+			<PlaceListContainer />
 		</div>
 	);
 }

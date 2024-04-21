@@ -1,6 +1,7 @@
 import React from 'react';
-import Input from '../../common/Input';
+
 import {IUser} from '../../../../types/common';
+import Input from '../../common/Input';
 
 interface IProp {
 	userInput: IUser;

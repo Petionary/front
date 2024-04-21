@@ -1,16 +1,25 @@
-interface IProps {
+import {ComponentPropsWithoutRef} from 'react';
+
+interface IProps extends ComponentPropsWithoutRef<'input'> {
 	text: string;
-	onClick?: () => void;
 }
 
-function Chip({text, onClick}: IProps) {
+function Chip({text, name, value, ...rest}: IProps) {
+	const cursor = rest.onChange && 'cursor-pointer';
+	const backgroundColor = rest.checked ? 'bg-secondary' : 'bg-primary';
 	return (
-		<span
-			onClick={onClick}
-			className='border px-[15px] py-1 text-[14px] rounded-full bg-primary text-white mr-[5px]'
+		<label
+			className={`border px-[15px] py-1 text-[14px] rounded-full text-white mr-[5px] ${cursor} ${backgroundColor}`}
 		>
-			{text}
-		</span>
+			<input
+				type='radio'
+				className='sr-only'
+				name={name}
+				value={value}
+				{...rest}
+			/>
+			<span>{text}</span>
+		</label>
 	);
 }
 

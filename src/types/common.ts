@@ -71,3 +71,11 @@ export interface IQueryOptions {
 }
 
 export type TSocialLogin = 'kakao' | 'naver';
+
+export type TOrderOption = 'distance' | 'rate' | 'review';
+
+export interface IPlaceParams {
+	search: string;
+	order: TOrderOption;
+	filter: string[];
+}

@@ -1,19 +1,23 @@
-interface IProps {
-	size?: 'sm' | 'lg';
+import {ComponentPropsWithoutRef} from 'react';
+
+interface IProps extends ComponentPropsWithoutRef<'input'> {
+	width?: 'sm' | 'lg';
 }
 
 const data = {
-	width: {
-		sm: 'w-[350px]',
-		lg: 'w-[560px]',
-	},
+	sm: 'w-[350px]',
+	lg: 'w-[560px]',
 };
 
-function SearchInput({size = 'sm'}: IProps) {
+function SearchInput({width = 'sm', onChange, name, value}: IProps) {
 	return (
 		<div>
 			<input
-				className={`border-b border-primary h-[48px] ${data.width[size]} px-[10px] outline-none`}
+				name={name}
+				value={value}
+				onChange={onChange}
+				autoComplete='off'
+				className={`border-b border-primary h-[48px] ${data[width]} px-[10px] outline-none`}
 			/>
 		</div>
 	);

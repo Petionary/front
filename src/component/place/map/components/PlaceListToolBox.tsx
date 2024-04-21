@@ -1,22 +1,28 @@
-function PlaceListToolBox() {
+/* eslint-disable no-unused-vars */
+import SearchInput from '@/component/input/SearchInput';
+import {ChangeEvent} from 'react';
+import CurrentLocation from '../../common/location/CurrentLocation';
+import OrderOptions from '../../common/order/OrderOptions';
+import {IPlaceParams} from '@/types/common';
+
+interface IProps {
+	params: IPlaceParams;
+	onChangeParam: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+function PlaceListToolBox({params, onChangeParam}: IProps) {
 	return (
-		<div className='p-[20px]'>
-			<div className='w-full'>
-				<input className='border w-[80%] h-[48px]' />
-			</div>
-			<div className='my-[5px]'>서울시 종로구</div>
-			{/* 정렬 옵션 */}
-			<div className='flex justify-between mx-[10px] my-[5px]'>
-				<span className='border px-2 py-1 text-[14px] rounded-full'>
-					거리순
-				</span>
-				<span className='border px-2 py-1 text-[14px] rounded-full'>
-					평점 높은 순
-				</span>
-				<span className='border px-2 py-1 text-[14px] rounded-full'>
-					리뷰 많은 순
-				</span>
-			</div>
+		<div className='p-[20px] my-[10px]'>
+			<SearchInput
+				name='search'
+				value={params.search}
+				onChange={onChangeParam}
+			/>
+			<CurrentLocation />
+			<OrderOptions
+				onClickOrderOption={onChangeParam}
+				order={params.order}
+			/>
 		</div>
 	);
 }

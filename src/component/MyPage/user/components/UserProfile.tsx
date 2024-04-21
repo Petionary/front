@@ -3,10 +3,9 @@ import React, {useEffect, useState} from 'react';
 
 import {IUser} from '@/types/common';
 import useUploadFile from '@/hooks/useUploadFile';
-
 import SectionTitle from '../../common/SectionTitle';
-import UserProfileInput from './UserProfileInput';
 import ProfileImage from '../../common/ProfileImage';
+import UserProfileInput from './UserProfileInput';
 
 interface IProps {
 	user: IUser;

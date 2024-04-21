@@ -3,36 +3,37 @@ import {useState} from 'react';
 import PlaceDetailContainer from './PlaceDetailContainer';
 import PlaceListWrapper from './PlaceListWrapper';
 import PlaceListToolBox from './PlaceListToolBox';
-import PlaceListOpenButton from './PlaceListOpenButton';
 
-interface IProps {
-	openToggle: boolean;
-	onClickOpen: () => void;
-}
+import FilterBar from '../../common/filter/FilterBar';
 
-function PlaceListContainer({openToggle, onClickOpen}: IProps) {
+import usePlaceParam from '@/hooks/usePlaceParam';
+
+function PlaceListContainer() {
 	const [detailToggle, setDetailToggle] = useState(false);
-	const openAnimation = openToggle ? 'translate-x-0' : '-translate-x-[400px]';
+	const [params, handlePlaceParams] = usePlaceParam();
+
 	return (
-		<div
-			className={`absolute h-full flex items-center duration-500 z-10 ${openAnimation}`}
-		>
-			<div className='relative w-[400px] h-full bg-white z-20 flex flex-col'>
-				<PlaceListToolBox />
-				<span onClick={() => setDetailToggle(true)}>open</span>
-				<PlaceListWrapper />
-			</div>
-			{!detailToggle && (
-				<PlaceListOpenButton
-					openToggle={openToggle}
-					onClickOpen={onClickOpen}
+		<>
+			<div className='absolute h-full flex items-center z-10'>
+				<div className='relative w-[400px] h-full bg-white z-20 flex flex-col'>
+					<PlaceListToolBox
+						params={params}
+						onChangeParam={handlePlaceParams}
+					/>
+					<PlaceListWrapper
+						onClickPlaceCard={() => setDetailToggle(true)}
+					/>
+				</div>
+				<PlaceDetailContainer
+					openToggle={detailToggle}
+					onClickCancel={() => setDetailToggle(false)}
 				/>
-			)}
-			<PlaceDetailContainer
-				openToggle={detailToggle}
-				onClickCancel={() => setDetailToggle(false)}
+			</div>
+			<FilterBar
+				filter={params.filter}
+				onChangeParam={handlePlaceParams}
 			/>
-		</div>
+		</>
 	);
 }
 

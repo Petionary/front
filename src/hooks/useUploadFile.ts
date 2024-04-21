@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {ChangeEvent, useState} from 'react';
 
 const useUploadFile: () => [

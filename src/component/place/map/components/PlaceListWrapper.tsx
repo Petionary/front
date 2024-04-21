@@ -1,7 +1,11 @@
 import PlaceCard from '@/component/card/PlaceCard';
 import {IPlace} from '@/types/common';
 
-const places: IPlace[] = [
+interface IProps {
+	onClickPlaceCard: () => void;
+}
+
+export const places: IPlace[] = [
 	{
 		name: '장소',
 		phoneNumber: '02-1234-5678',
@@ -46,13 +50,33 @@ const places: IPlace[] = [
 	},
 ];
 
-function PlaceListWrapper() {
+function PlaceListWrapper({onClickPlaceCard}: IProps) {
 	return (
 		<section className='flex flex-col overflow-scroll items-center w-full'>
-			<PlaceCard size='lg' cursor place={places[0]} />
-			<PlaceCard size='lg' cursor place={places[0]} />
-			<PlaceCard size='lg' cursor place={places[0]} />
-			<PlaceCard size='lg' cursor place={places[0]} />
+			<PlaceCard
+				size='lg'
+				cursor
+				place={places[0]}
+				onClickPlaceCard={onClickPlaceCard}
+			/>
+			<PlaceCard
+				size='lg'
+				cursor
+				place={places[0]}
+				onClickPlaceCard={onClickPlaceCard}
+			/>
+			<PlaceCard
+				size='lg'
+				cursor
+				place={places[0]}
+				onClickPlaceCard={onClickPlaceCard}
+			/>
+			<PlaceCard
+				size='lg'
+				cursor
+				place={places[0]}
+				onClickPlaceCard={onClickPlaceCard}
+			/>
 		</section>
 	);
 }

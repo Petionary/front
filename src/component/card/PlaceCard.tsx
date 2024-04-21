@@ -3,7 +3,8 @@ import {IPlace} from '@/types/common';
 interface IProps {
 	size?: 'sm' | 'lg';
 	cursor?: boolean;
-	place: IPlace;
+	// 추후 수정
+	place?: IPlace;
 	onClickPlaceCard?: () => void;
 }
 
@@ -41,21 +42,21 @@ function PlaceCard({
 							'text-[14px] font-[700] mb-[2px] text-gray_100'
 						}
 					>
-						{place.name}
+						{place?.name}
 					</p>
 					<p
 						className={
 							'text-[14px] font-[700] mb-[2px] text-gray_100'
 						}
 					>
-						{`${place.address.area} ${place.address.city} ${place.address.localAddress}`}
+						{`${place?.address.area} ${place?.address.city} ${place?.address.localAddress}`}
 					</p>
 					<p
 						className={
 							'text-[14px] font-[700] mb-[2px] text-gray_100'
 						}
 					>
-						{place.phoneNumber}
+						{place?.phoneNumber}
 					</p>
 				</div>
 				<p className={'text-[12px] font-[400] text-gray_60'}>0.5km</p>
