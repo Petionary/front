@@ -1,9 +1,3 @@
-export const oPageKey = {
-	best: 'best',
-	new: 'new',
-	report: 'report',
-};
-
 export const oPetGender = [
 	{value: 'MALE', label: '남'},
 	{value: 'FEMALE', label: '여'},

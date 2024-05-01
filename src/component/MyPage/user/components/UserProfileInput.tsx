@@ -22,7 +22,7 @@ function UserProfileInput({editable, userInput}: IProp) {
 				<Input label='이름' value={userInput.name} disabled={true} />
 				<Input
 					label='전화번호'
-					value={userInput.contact}
+					value={userInput.phoneNumber}
 					disabled={!editable}
 				/>
 			</div>
